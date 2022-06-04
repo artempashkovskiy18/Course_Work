@@ -2,7 +2,7 @@
 
 namespace CourseWork
 {
-    class Car_information
+    public class Car_information
     {
         public class Car
         {

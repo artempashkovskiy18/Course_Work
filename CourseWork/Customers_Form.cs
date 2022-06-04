@@ -17,9 +17,11 @@ namespace CourseWork
             InitializeComponent();
             Exit_To_Menu_Button.DialogResult = DialogResult.Abort;
             Add_Customer_Button.DialogResult = DialogResult.Abort;
+            Get_suitable_cars_button.DialogResult = DialogResult.Abort;
         }
 
         List<Customer> customers = new List<Customer>();
+        List<Car> cars = new List<Car>();
         List<ListBox> listboxes = new List<ListBox>();
         int selected_index = 0;
 
@@ -49,7 +51,7 @@ namespace CourseWork
                 }
             }
         }
-        private void Get_Info_From_File()
+        private void Get_Customers_From_File()
         {
             foreach (string line in File.ReadLines("customers.txt"))
             {
@@ -72,6 +74,29 @@ namespace CourseWork
                 Customer temp = new Customer(cutomer_info[contacts_id], car, Convert.ToInt32(cutomer_info[finances_id]));
 
                 customers.Add(temp);
+            }
+        }
+        private void Get_Cars_From_File()
+        {
+            foreach (string line in File.ReadLines("cars.txt"))
+            {
+                List<string> cutomer_info = line.Split(',').ToList();
+
+                Car car = new Car(
+                    cutomer_info[brand_id],
+                    Convert.ToInt32(cutomer_info[release_year_id]),
+                    Convert.ToInt32(cutomer_info[price_id]),
+                    Convert.ToInt32(cutomer_info[cylinder_amount_id]),
+                    Convert.ToInt32(cutomer_info[volume_id]),
+                    Convert.ToInt32(cutomer_info[horse_power_id]),
+                    cutomer_info[transmission_type_id],
+                    Convert.ToInt32(cutomer_info[length_id]),
+                    Convert.ToInt32(cutomer_info[width_id]),
+                    Convert.ToInt32(cutomer_info[height_id]),
+                    cutomer_info[peculiarities_id],
+                    cutomer_info[condition_id]);
+                
+                cars.Add(car);
             }
         }
         private void Put_To_ListBoxes()
@@ -148,6 +173,88 @@ namespace CourseWork
                 return s;
             }
         }
+        private List<Car> Get_Suitable_Cars()
+        {
+            List<Car> temp = new List<Car>();
+            
+            foreach (Car element in cars) //find suitable cars by price
+            {
+                if (element.price <= customers[selected_index].finances)
+                {
+                    temp.Add(element);
+                }
+            }
+            
+            
+            for(int i = 0; i < temp.Count; i++) //delete cars we don't need by other characteristics
+            {
+                if (temp[i].brand != customers[selected_index].required_car.brand && 
+                    customers[selected_index].required_car.brand != "")
+                {
+                    temp.RemoveAt(i);
+                }
+                
+                if (temp[i].release_year != customers[selected_index].required_car.release_year && 
+                    customers[selected_index].required_car.release_year != -1)
+                {
+                    temp.RemoveAt(i);
+                }
+                
+                if (temp[i].characteristics.engine.cylinder_amount != customers[selected_index].required_car.characteristics.engine.cylinder_amount && 
+                    customers[selected_index].required_car.characteristics.engine.cylinder_amount != -1)
+                {
+                    temp.RemoveAt(i);
+                }
+                
+                if (temp[i].characteristics.engine.volume != customers[selected_index].required_car.characteristics.engine.volume && 
+                    customers[selected_index].required_car.characteristics.engine.volume != -1)
+                {
+                    temp.RemoveAt(i);
+                }
+                
+                if (temp[i].characteristics.engine.horse_power != customers[selected_index].required_car.characteristics.engine.horse_power && 
+                    customers[selected_index].required_car.characteristics.engine.horse_power != -1)
+                {
+                    temp.RemoveAt(i);
+                }
+                
+                if (temp[i].characteristics.transmission.transmission_type != customers[selected_index].required_car.characteristics.transmission.transmission_type && 
+                    customers[selected_index].required_car.characteristics.transmission.transmission_type != "")
+                {
+                    temp.RemoveAt(i);
+                }
+                
+                if (temp[i].characteristics.dimensions.length != customers[selected_index].required_car.characteristics.dimensions.length && 
+                    customers[selected_index].required_car.characteristics.dimensions.length != -1)
+                {
+                    temp.RemoveAt(i);
+                }
+                
+                if (temp[i].characteristics.dimensions.width != customers[selected_index].required_car.characteristics.dimensions.width && 
+                    customers[selected_index].required_car.characteristics.dimensions.width != -1)
+                {
+                    temp.RemoveAt(i);
+                }
+                
+                if (temp[i].characteristics.dimensions.height != customers[selected_index].required_car.characteristics.dimensions.height && 
+                    customers[selected_index].required_car.characteristics.dimensions.height != -1)
+                {
+                    temp.RemoveAt(i);
+                }
+                
+                if (temp[i].condition != customers[selected_index].required_car.condition && 
+                    customers[selected_index].required_car.condition != "")
+                {
+                    temp.RemoveAt(i);
+                }
+            }
+            
+
+            return temp;
+        }
+        
+        
+
 
 
 
@@ -155,7 +262,10 @@ namespace CourseWork
         private void Customers_Form_Load(object sender, EventArgs e)
         {
             listboxes = Get_ListBoxes();
-            Get_Info_From_File();
+            
+            Get_Customers_From_File();
+            Get_Cars_From_File();
+            
             Put_To_ListBoxes();
         }
         private void Customers_Form_FormClosing(object sender, FormClosingEventArgs e)
@@ -198,6 +308,15 @@ namespace CourseWork
 
                 Put_To_ListBoxes();
             }
+        }
+        private void Get_suitable_cars_button_Click(object sender, EventArgs e)
+        {
+            List<Car> suitable_cars = Get_Suitable_Cars();
+            
+
+            Cars_Form carsForm = new Cars_Form(false, suitable_cars);
+            carsForm.Show();
+            this.Close();
         }
 
 

@@ -18,10 +18,20 @@ namespace CourseWork
             Exit_To_Menu_Button.DialogResult = DialogResult.Abort;
             Add_Car_Button.DialogResult = DialogResult.Abort;
         }
+        
+        public Cars_Form(bool display_all_cars, List<Car> suitable_cars)
+        {
+            InitializeComponent();
+            Exit_To_Menu_Button.DialogResult = DialogResult.Abort;
+            Add_Car_Button.DialogResult = DialogResult.Abort;
+            this.display_all_cars = display_all_cars;
+            cars = suitable_cars;
+        }
 
         List<Car> cars = new List<Car>();
         List<ListBox> listboxes = new List<ListBox>();
         int selected_index = 0;
+        private bool display_all_cars = true;
 
 
         private void Save_Info_Before_Close()
@@ -147,17 +157,37 @@ namespace CourseWork
         private void Cars_Form_Load(object sender, EventArgs e)
         {
             listboxes = Get_ListBoxes();
-            Get_Info_From_File();
+            
+            if (display_all_cars)
+            {
+                Get_Info_From_File();
+            }
+            else
+            {
+                Add_Car_Button.Enabled = false;
+                Add_Car_Button.Hide();
+                Delete_Car_Button.Enabled = false;
+                Delete_Car_Button.Hide();
+            }
+            
             Put_To_ListBoxes();
         }
         private void Cars_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.DialogResult == DialogResult.None)
+            if (display_all_cars)
             {
-                Main_form main_form = new Main_form();
-                main_form.Show();
+                if (this.DialogResult == DialogResult.None)
+                {
+                    Main_form main_form = new Main_form();
+                    main_form.Show();
+                }
+                Save_Info_Before_Close();
             }
-            Save_Info_Before_Close();
+            else
+            {
+                Customers_Form customers_form = new Customers_Form();
+                customers_form.Show();
+            }
         }
 
 
@@ -167,8 +197,11 @@ namespace CourseWork
 
         private void Exit_To_Menu_Button_Click(object sender, EventArgs e)
         {
-            Main_form main_form = new Main_form();
-            main_form.Show();
+            if (display_all_cars)
+            {
+                Main_form main_form = new Main_form();
+                main_form.Show();
+            }
             this.Close();
         }
         private void Add_Car_Button_Click(object sender, EventArgs e)
@@ -202,15 +235,24 @@ namespace CourseWork
 
         private void peculiarities_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            cars[selected_index].peculiarities = Change_value<string>(peculiarities_listBox);
+            if (display_all_cars)
+            {
+                cars[selected_index].peculiarities = Change_value<string>(peculiarities_listBox);
+            }
         }
         private void condition_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            cars[selected_index].condition = Change_value<string>(condition_listBox);
+            if (display_all_cars)
+            {
+                cars[selected_index].condition = Change_value<string>(condition_listBox);
+            }
         }
         private void price_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            cars[selected_index].price = Convert.ToInt32(Change_value<int>(price_listBox));
+            if (display_all_cars)
+            {
+                cars[selected_index].price = Convert.ToInt32(Change_value<int>(price_listBox));
+            }
         }
 
 

@@ -72,9 +72,7 @@ namespace CourseWork
             // 
             this.brand_listBox.AccessibleName = "";
             this.brand_listBox.FormattingEnabled = true;
-            this.brand_listBox.Items.AddRange(new object[] {
-            "123",
-            "456"});
+            this.brand_listBox.Items.AddRange(new object[] { "123", "456" });
             this.brand_listBox.Location = new System.Drawing.Point(12, 70);
             this.brand_listBox.Name = "brand_listBox";
             this.brand_listBox.Size = new System.Drawing.Size(120, 472);
@@ -85,9 +83,7 @@ namespace CourseWork
             // 
             this.release_year_listBox.AccessibleName = "";
             this.release_year_listBox.FormattingEnabled = true;
-            this.release_year_listBox.Items.AddRange(new object[] {
-            "123",
-            "456"});
+            this.release_year_listBox.Items.AddRange(new object[] { "123", "456" });
             this.release_year_listBox.Location = new System.Drawing.Point(138, 70);
             this.release_year_listBox.Name = "release_year_listBox";
             this.release_year_listBox.Size = new System.Drawing.Size(44, 472);
@@ -117,9 +113,7 @@ namespace CourseWork
             // 
             this.cylinder_amount_listBox.AccessibleName = "";
             this.cylinder_amount_listBox.FormattingEnabled = true;
-            this.cylinder_amount_listBox.Items.AddRange(new object[] {
-            "123",
-            "456"});
+            this.cylinder_amount_listBox.Items.AddRange(new object[] { "123", "456" });
             this.cylinder_amount_listBox.Location = new System.Drawing.Point(188, 70);
             this.cylinder_amount_listBox.Name = "cylinder_amount_listBox";
             this.cylinder_amount_listBox.Size = new System.Drawing.Size(44, 472);
@@ -130,9 +124,7 @@ namespace CourseWork
             // 
             this.volume_listBox.AccessibleName = "";
             this.volume_listBox.FormattingEnabled = true;
-            this.volume_listBox.Items.AddRange(new object[] {
-            "123",
-            "456"});
+            this.volume_listBox.Items.AddRange(new object[] { "123", "456" });
             this.volume_listBox.Location = new System.Drawing.Point(238, 70);
             this.volume_listBox.Name = "volume_listBox";
             this.volume_listBox.Size = new System.Drawing.Size(44, 472);
@@ -143,9 +135,7 @@ namespace CourseWork
             // 
             this.horse_power_listBox.AccessibleName = "";
             this.horse_power_listBox.FormattingEnabled = true;
-            this.horse_power_listBox.Items.AddRange(new object[] {
-            "123",
-            "456"});
+            this.horse_power_listBox.Items.AddRange(new object[] { "123", "456" });
             this.horse_power_listBox.Location = new System.Drawing.Point(288, 70);
             this.horse_power_listBox.Name = "horse_power_listBox";
             this.horse_power_listBox.Size = new System.Drawing.Size(59, 472);
@@ -156,9 +146,7 @@ namespace CourseWork
             // 
             this.transmission_type_listBox.AccessibleName = "";
             this.transmission_type_listBox.FormattingEnabled = true;
-            this.transmission_type_listBox.Items.AddRange(new object[] {
-            "123",
-            "456"});
+            this.transmission_type_listBox.Items.AddRange(new object[] { "123", "456" });
             this.transmission_type_listBox.Location = new System.Drawing.Point(353, 70);
             this.transmission_type_listBox.Name = "transmission_type_listBox";
             this.transmission_type_listBox.Size = new System.Drawing.Size(56, 472);
@@ -169,9 +157,7 @@ namespace CourseWork
             // 
             this.length_listBox.AccessibleName = "";
             this.length_listBox.FormattingEnabled = true;
-            this.length_listBox.Items.AddRange(new object[] {
-            "123",
-            "456"});
+            this.length_listBox.Items.AddRange(new object[] { "123", "456" });
             this.length_listBox.Location = new System.Drawing.Point(415, 70);
             this.length_listBox.Name = "length_listBox";
             this.length_listBox.Size = new System.Drawing.Size(44, 472);
@@ -182,9 +168,7 @@ namespace CourseWork
             // 
             this.width_listBox.AccessibleName = "";
             this.width_listBox.FormattingEnabled = true;
-            this.width_listBox.Items.AddRange(new object[] {
-            "123",
-            "456"});
+            this.width_listBox.Items.AddRange(new object[] { "123", "456" });
             this.width_listBox.Location = new System.Drawing.Point(465, 70);
             this.width_listBox.Name = "width_listBox";
             this.width_listBox.Size = new System.Drawing.Size(44, 472);
@@ -195,9 +179,7 @@ namespace CourseWork
             // 
             this.height_listBox.AccessibleName = "";
             this.height_listBox.FormattingEnabled = true;
-            this.height_listBox.Items.AddRange(new object[] {
-            "123",
-            "456"});
+            this.height_listBox.Items.AddRange(new object[] { "123", "456" });
             this.height_listBox.Location = new System.Drawing.Point(515, 70);
             this.height_listBox.Name = "height_listBox";
             this.height_listBox.Size = new System.Drawing.Size(44, 472);
@@ -278,9 +260,7 @@ namespace CourseWork
             // 
             this.peculiarities_listBox.AccessibleName = "";
             this.peculiarities_listBox.FormattingEnabled = true;
-            this.peculiarities_listBox.Items.AddRange(new object[] {
-            "123",
-            "456"});
+            this.peculiarities_listBox.Items.AddRange(new object[] { "123", "456" });
             this.peculiarities_listBox.Location = new System.Drawing.Point(565, 70);
             this.peculiarities_listBox.Name = "peculiarities_listBox";
             this.peculiarities_listBox.Size = new System.Drawing.Size(218, 472);
@@ -312,9 +292,7 @@ namespace CourseWork
             // 
             this.condition_listBox.AccessibleName = "";
             this.condition_listBox.FormattingEnabled = true;
-            this.condition_listBox.Items.AddRange(new object[] {
-            "123",
-            "456"});
+            this.condition_listBox.Items.AddRange(new object[] { "123", "456" });
             this.condition_listBox.Location = new System.Drawing.Point(789, 70);
             this.condition_listBox.Name = "condition_listBox";
             this.condition_listBox.Size = new System.Drawing.Size(63, 472);
@@ -336,9 +314,7 @@ namespace CourseWork
             // 
             this.price_listBox.AccessibleName = "";
             this.price_listBox.FormattingEnabled = true;
-            this.price_listBox.Items.AddRange(new object[] {
-            "123",
-            "456"});
+            this.price_listBox.Items.AddRange(new object[] { "123", "456" });
             this.price_listBox.Location = new System.Drawing.Point(858, 70);
             this.price_listBox.Name = "price_listBox";
             this.price_listBox.Size = new System.Drawing.Size(63, 472);
@@ -406,7 +382,6 @@ namespace CourseWork
             this.Load += new System.EventHandler(this.Cars_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
