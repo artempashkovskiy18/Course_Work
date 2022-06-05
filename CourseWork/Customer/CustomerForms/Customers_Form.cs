@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using static CourseWork.Car_information;
 using static CourseWork.Cars_File_indexes;
 using static CourseWork.Customers_File_indexes;
+using static CourseWork.CustomerService;
 
 namespace CourseWork
 {
@@ -38,7 +39,7 @@ namespace CourseWork
                         element.required_car.characteristics.engine.cylinder_amount,
                         element.required_car.characteristics.engine.volume,
                         element.required_car.characteristics.engine.horse_power,
-                        element.required_car.characteristics.transmission.transmission_type,
+                        element.required_car.characteristics.transmission_type,
                         element.required_car.characteristics.dimensions.length,
                         element.required_car.characteristics.dimensions.width,
                         element.required_car.characteristics.dimensions.height,
@@ -59,19 +60,19 @@ namespace CourseWork
 
                 Car car = new Car(
                     cutomer_info[brand_id],
-                    Convert.ToInt32(cutomer_info[release_year_id]),
-                    Convert.ToInt32(cutomer_info[price_id]),
-                    Convert.ToInt32(cutomer_info[cylinder_amount_id]),
-                    Convert.ToInt32(cutomer_info[volume_id]),
-                    Convert.ToInt32(cutomer_info[horse_power_id]),
+                    int.Parse(cutomer_info[release_year_id]),
+                    int.Parse(cutomer_info[price_id]),
+                    int.Parse(cutomer_info[cylinder_amount_id]),
+                    int.Parse(cutomer_info[volume_id]),
+                    int.Parse(cutomer_info[horse_power_id]),
                     cutomer_info[transmission_type_id],
-                    Convert.ToInt32(cutomer_info[length_id]),
-                    Convert.ToInt32(cutomer_info[width_id]),
-                    Convert.ToInt32(cutomer_info[height_id]),
+                    int.Parse(cutomer_info[length_id]),
+                    int.Parse(cutomer_info[width_id]),
+                    int.Parse(cutomer_info[height_id]),
                     cutomer_info[peculiarities_id],
                     cutomer_info[condition_id]);
 
-                Customer temp = new Customer(cutomer_info[contacts_id], car, Convert.ToInt32(cutomer_info[finances_id]));
+                Customer temp = new Customer(cutomer_info[contacts_id], car, int.Parse(cutomer_info[finances_id]));
 
                 customers.Add(temp);
             }
@@ -84,15 +85,15 @@ namespace CourseWork
 
                 Car car = new Car(
                     cutomer_info[brand_id],
-                    Convert.ToInt32(cutomer_info[release_year_id]),
-                    Convert.ToInt32(cutomer_info[price_id]),
-                    Convert.ToInt32(cutomer_info[cylinder_amount_id]),
-                    Convert.ToInt32(cutomer_info[volume_id]),
-                    Convert.ToInt32(cutomer_info[horse_power_id]),
+                    int.Parse(cutomer_info[release_year_id]),
+                    int.Parse(cutomer_info[price_id]),
+                    int.Parse(cutomer_info[cylinder_amount_id]),
+                    int.Parse(cutomer_info[volume_id]),
+                    int.Parse(cutomer_info[horse_power_id]),
                     cutomer_info[transmission_type_id],
-                    Convert.ToInt32(cutomer_info[length_id]),
-                    Convert.ToInt32(cutomer_info[width_id]),
-                    Convert.ToInt32(cutomer_info[height_id]),
+                    int.Parse(cutomer_info[length_id]),
+                    int.Parse(cutomer_info[width_id]),
+                    int.Parse(cutomer_info[height_id]),
                     cutomer_info[peculiarities_id],
                     cutomer_info[condition_id]);
                 
@@ -101,12 +102,12 @@ namespace CourseWork
         }
         private void Put_To_ListBoxes()
         {
-            //clearing listboxes
             foreach (ListBox element in listboxes)
             {
                 element.Items.Clear();
             }
-            //filling listboxes
+            
+            
             foreach (Customer element in customers)
             {
                 brand_listBox.Items.Add(element.required_car.brand);
@@ -114,7 +115,7 @@ namespace CourseWork
                 cylinder_amount_listBox.Items.Add(element.required_car.characteristics.engine.cylinder_amount);
                 volume_listBox.Items.Add(element.required_car.characteristics.engine.volume);
                 horse_power_listBox.Items.Add(element.required_car.characteristics.engine.horse_power);
-                transmission_type_listBox.Items.Add(element.required_car.characteristics.transmission.transmission_type);
+                transmission_type_listBox.Items.Add(element.required_car.characteristics.transmission_type);
                 length_listBox.Items.Add(element.required_car.characteristics.dimensions.length);
                 width_listBox.Items.Add(element.required_car.characteristics.dimensions.width);
                 height_listBox.Items.Add(element.required_car.characteristics.dimensions.height);
@@ -126,14 +127,11 @@ namespace CourseWork
         }
         private List<ListBox> Get_ListBoxes()
         {
-            Control[] x = new Control[Controls.Count];
-            Controls.CopyTo(x, 0);
-            List<Control> y = x.ToList();
             List<ListBox> listboxes = new List<ListBox>();
 
-            foreach (Control element in y)
+            foreach (Control element in Controls)
             {
-                if (element.GetType().ToString() == "System.Windows.Forms.ListBox")
+                if (element.GetType() == typeof(ListBox))
                 {
                     listboxes.Add((ListBox)element);
                 }
@@ -157,7 +155,7 @@ namespace CourseWork
             {
                 try
                 {
-                    int temp = Convert.ToInt32(s);
+                    int temp = int.Parse(s);
                     listBox.Items[selected_index] = s;
                     return s;
                 }
@@ -173,85 +171,9 @@ namespace CourseWork
                 return s;
             }
         }
-        private List<Car> Get_Suitable_Cars()
-        {
-            List<Car> temp = new List<Car>();
-            
-            foreach (Car element in cars) //find suitable cars by price
-            {
-                if (element.price <= customers[selected_index].finances)
-                {
-                    temp.Add(element);
-                }
-            }
-            
-            
-            for(int i = 0; i < temp.Count; i++) //delete cars we don't need by other characteristics
-            {
-                if (temp[i].brand != customers[selected_index].required_car.brand && 
-                    customers[selected_index].required_car.brand != "")
-                {
-                    temp.RemoveAt(i);
-                }
-                
-                if (temp[i].release_year != customers[selected_index].required_car.release_year && 
-                    customers[selected_index].required_car.release_year != -1)
-                {
-                    temp.RemoveAt(i);
-                }
-                
-                if (temp[i].characteristics.engine.cylinder_amount != customers[selected_index].required_car.characteristics.engine.cylinder_amount && 
-                    customers[selected_index].required_car.characteristics.engine.cylinder_amount != -1)
-                {
-                    temp.RemoveAt(i);
-                }
-                
-                if (temp[i].characteristics.engine.volume != customers[selected_index].required_car.characteristics.engine.volume && 
-                    customers[selected_index].required_car.characteristics.engine.volume != -1)
-                {
-                    temp.RemoveAt(i);
-                }
-                
-                if (temp[i].characteristics.engine.horse_power != customers[selected_index].required_car.characteristics.engine.horse_power && 
-                    customers[selected_index].required_car.characteristics.engine.horse_power != -1)
-                {
-                    temp.RemoveAt(i);
-                }
-                
-                if (temp[i].characteristics.transmission.transmission_type != customers[selected_index].required_car.characteristics.transmission.transmission_type && 
-                    customers[selected_index].required_car.characteristics.transmission.transmission_type != "")
-                {
-                    temp.RemoveAt(i);
-                }
-                
-                if (temp[i].characteristics.dimensions.length != customers[selected_index].required_car.characteristics.dimensions.length && 
-                    customers[selected_index].required_car.characteristics.dimensions.length != -1)
-                {
-                    temp.RemoveAt(i);
-                }
-                
-                if (temp[i].characteristics.dimensions.width != customers[selected_index].required_car.characteristics.dimensions.width && 
-                    customers[selected_index].required_car.characteristics.dimensions.width != -1)
-                {
-                    temp.RemoveAt(i);
-                }
-                
-                if (temp[i].characteristics.dimensions.height != customers[selected_index].required_car.characteristics.dimensions.height && 
-                    customers[selected_index].required_car.characteristics.dimensions.height != -1)
-                {
-                    temp.RemoveAt(i);
-                }
-                
-                if (temp[i].condition != customers[selected_index].required_car.condition && 
-                    customers[selected_index].required_car.condition != "")
-                {
-                    temp.RemoveAt(i);
-                }
-            }
-            
 
-            return temp;
-        }
+        
+        
         
         
 
@@ -311,7 +233,7 @@ namespace CourseWork
         }
         private void Get_suitable_cars_button_Click(object sender, EventArgs e)
         {
-            List<Car> suitable_cars = Get_Suitable_Cars();
+            List<Car> suitable_cars = Get_Suitable_Cars(cars, customers[selected_index]);
             
 
             Cars_Form carsForm = new Cars_Form(false, suitable_cars);
@@ -385,42 +307,42 @@ namespace CourseWork
         }
         private void release_year_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selected_index].required_car.release_year = Convert.ToInt32(Change_value<int>(release_year_listBox));
+            customers[selected_index].required_car.release_year = int.Parse(Change_value<int>(release_year_listBox));
         }
         private void cylinder_amount_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             customers[selected_index].required_car.characteristics.engine.cylinder_amount = 
-                Convert.ToInt32(Change_value<int>(cylinder_amount_listBox));
+                int.Parse(Change_value<int>(cylinder_amount_listBox));
         }
         private void volume_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             customers[selected_index].required_car.characteristics.engine.volume =
-                Convert.ToInt32(Change_value<int>(volume_listBox));
+                int.Parse(Change_value<int>(volume_listBox));
         }
         private void horse_power_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             customers[selected_index].required_car.characteristics.engine.horse_power =
-                Convert.ToInt32(Change_value<int>(horse_power_listBox));
+                int.Parse(Change_value<int>(horse_power_listBox));
         }
         private void transmission_type_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selected_index].required_car.characteristics.transmission.transmission_type =
+            customers[selected_index].required_car.characteristics.transmission_type =
                 Change_value<string>(transmission_type_listBox);
         }
         private void length_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             customers[selected_index].required_car.characteristics.dimensions.length =
-                Convert.ToInt32(Change_value<int>(length_listBox));
+                int.Parse(Change_value<int>(length_listBox));
         }
         private void width_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             customers[selected_index].required_car.characteristics.dimensions.width =
-                   Convert.ToInt32(Change_value<int>(width_listBox));
+                   int.Parse(Change_value<int>(width_listBox));
         }
         private void height_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             customers[selected_index].required_car.characteristics.dimensions.height =
-                 Convert.ToInt32(Change_value<int>(height_listBox));
+                 int.Parse(Change_value<int>(height_listBox));
         }
         private void peculiarities_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -435,7 +357,7 @@ namespace CourseWork
         private void finances_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             customers[selected_index].finances =
-                   Convert.ToInt32(Change_value<int>(finances_listBox));
+                   int.Parse(Change_value<int>(finances_listBox));
         }
         private void contacts_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {

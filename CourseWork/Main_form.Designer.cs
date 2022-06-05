@@ -24,8 +24,8 @@ namespace CourseWork
         #region Код, автоматически созданный конструктором форм Windows
 
         /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -64,7 +64,6 @@ namespace CourseWork
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_form_FormClosing);
             this.ResumeLayout(false);
-
         }
 
         #endregion

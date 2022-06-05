@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CourseWork
@@ -27,7 +20,7 @@ namespace CourseWork
             }
             else
             {
-                return Convert.ToInt32(textbox.Text);
+                return int.Parse(textbox.Text);
             }
         }
         private void Add_customer_to_file(Customer customer)
@@ -41,7 +34,7 @@ namespace CourseWork
                         customer.required_car.characteristics.engine.cylinder_amount,
                         customer.required_car.characteristics.engine.volume,
                         customer.required_car.characteristics.engine.horse_power,
-                        customer.required_car.characteristics.transmission.transmission_type,
+                        customer.required_car.characteristics.transmission_type,
                         customer.required_car.characteristics.dimensions.length,
                         customer.required_car.characteristics.dimensions.width,
                         customer.required_car.characteristics.dimensions.height,
@@ -68,7 +61,7 @@ namespace CourseWork
             adding_customer.required_car.characteristics.engine.volume = Check_is_textBox_empty(Volume_TextBox);
             adding_customer.required_car.characteristics.engine.horse_power = Check_is_textBox_empty(Horse_Power_TextBox);
 
-            adding_customer.required_car.characteristics.transmission.transmission_type = Transmission_Type_TextBox.Text;
+            adding_customer.required_car.characteristics.transmission_type = Transmission_Type_TextBox.Text;
 
             adding_customer.required_car.characteristics.dimensions.length = Check_is_textBox_empty(Length_TextBox);
             adding_customer.required_car.characteristics.dimensions.width = Check_is_textBox_empty(Width_TextBox);

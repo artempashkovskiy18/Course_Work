@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using static CourseWork.Car_information;
 using static CourseWork.Cars_File_indexes;
@@ -47,7 +46,7 @@ namespace CourseWork
                         element.characteristics.engine.cylinder_amount,
                         element.characteristics.engine.volume, 
                         element.characteristics.engine.horse_power,
-                        element.characteristics.transmission.transmission_type,
+                        element.characteristics.transmission_type,
                         element.characteristics.dimensions.length,
                         element.characteristics.dimensions.width,
                         element.characteristics.dimensions.height,
@@ -63,15 +62,15 @@ namespace CourseWork
             {
                 List<string> car_info = line.Split(',').ToList();
                 Car temp = new Car(car_info[brand_id],
-                    Convert.ToInt32(car_info[release_year_id]),
-                    Convert.ToInt32(car_info[price_id]),
-                    Convert.ToInt32(car_info[cylinder_amount_id]),
-                    Convert.ToInt32(car_info[volume_id]),
-                    Convert.ToInt32(car_info[horse_power_id]),
+                    int.Parse(car_info[release_year_id]),
+                    int.Parse(car_info[price_id]),
+                    int.Parse(car_info[cylinder_amount_id]),
+                    int.Parse(car_info[volume_id]),
+                    int.Parse(car_info[horse_power_id]),
                     car_info[transmission_type_id],
-                    Convert.ToInt32(car_info[length_id]),
-                    Convert.ToInt32(car_info[width_id]),
-                    Convert.ToInt32(car_info[height_id]),
+                    int.Parse(car_info[length_id]),
+                    int.Parse(car_info[width_id]),
+                    int.Parse(car_info[height_id]),
                     car_info[peculiarities_id],
                     car_info[condition_id]);
 
@@ -93,7 +92,7 @@ namespace CourseWork
                 cylinder_amount_listBox.Items.Add(element.characteristics.engine.cylinder_amount);
                 volume_listBox.Items.Add(element.characteristics.engine.volume);
                 horse_power_listBox.Items.Add(element.characteristics.engine.horse_power);
-                transmission_type_listBox.Items.Add(element.characteristics.transmission.transmission_type);
+                transmission_type_listBox.Items.Add(element.characteristics.transmission_type);
                 length_listBox.Items.Add(element.characteristics.dimensions.length);
                 width_listBox.Items.Add(element.characteristics.dimensions.width);
                 height_listBox.Items.Add(element.characteristics.dimensions.height);
@@ -104,14 +103,11 @@ namespace CourseWork
         }
         private List<ListBox> Get_ListBoxes()
         {
-            Control[] x = new Control[Controls.Count];
-            Controls.CopyTo(x, 0);
-            List<Control> y = x.ToList();
             List<ListBox> listboxes = new List<ListBox>();
 
-            foreach (Control element in y)
+            foreach (Control element in Controls)
             {
-                if (element.GetType().ToString() == "System.Windows.Forms.ListBox")
+                if (element.GetType() == typeof(ListBox))
                 {
                     listboxes.Add((ListBox)element);
                 }
@@ -135,7 +131,7 @@ namespace CourseWork
             {
                 try
                 {
-                    int temp = Convert.ToInt32(s);
+                    int temp = int.Parse(s);
                     listBox.Items[selected_index] = s;
                     return s;
                 }
@@ -251,7 +247,7 @@ namespace CourseWork
         {
             if (display_all_cars)
             {
-                cars[selected_index].price = Convert.ToInt32(Change_value<int>(price_listBox));
+                cars[selected_index].price = int.Parse(Change_value<int>(price_listBox));
             }
         }
 

@@ -2,7 +2,7 @@
 
 namespace CourseWork
 {
-    class Cars_File_indexes
+    internal static class Cars_File_indexes
     {
         public const int brand_id = 0;
         public const int release_year_id = 1;

@@ -2,11 +2,11 @@
 
 namespace CourseWork
 {
-    class Customer
+    public class Customer
     {
-        public string contacts;
-        public Car required_car;
-        public int finances;
+        public string contacts { get; set; }
+        public Car required_car { get; set; }
+        public int finances { get; set; }
 
         public Customer(string contacts, Car reqired_car, int finances)
         {
@@ -14,11 +14,9 @@ namespace CourseWork
             this.required_car = reqired_car;
             this.finances = finances;
         }
-        public Customer()
+
+        public Customer() : this("", new Car(), -1)
         {
-            this.contacts = "";
-            this.required_car = new Car();
-            this.finances = -1;
         }
 
     }
