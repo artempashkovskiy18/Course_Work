@@ -1,7 +1,7 @@
 ﻿
 namespace CourseWork
 {
-    partial class Add_Car_Form
+    partial class AddCarForm
     {
         /// <summary>
         /// Required designer variable.
@@ -312,7 +312,7 @@ namespace CourseWork
             this.Controls.Add(this.Close_Form_Button);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Brand_TextBox);
-            this.Name = "Add_Car_Form";
+            this.Name = "AddCarForm";
             this.Text = "Add_Car_Form";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Add_Car_Form_FormClosed);
             this.ResumeLayout(false);

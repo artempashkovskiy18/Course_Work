@@ -1,7 +1,7 @@
 ﻿
 namespace CourseWork
 {
-    partial class Main_form
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -60,7 +60,7 @@ namespace CourseWork
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Main_form";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_form_FormClosing);
             this.ResumeLayout(false);

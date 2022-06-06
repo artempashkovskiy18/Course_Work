@@ -1,9 +1,0 @@
-﻿
-namespace CourseWork
-{
-    internal static class Customers_File_indexes
-    {
-        public const int contacts_id = 12;
-        public const int finances_id = 13;
-    }
-}

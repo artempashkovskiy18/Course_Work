@@ -47,57 +47,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car\CarForms\Add_Car_Form.cs">
+    <Compile Include="Common\CarsFileIndexes.cs" />
+    <Compile Include="Common\CustomersFileIndexes.cs" />
+    <Compile Include="Forms\CarForms\AddCarForm.cs" />
+    <Compile Include="Forms\CarForms\AddCarForm.Designer.cs">
+      <DependentUpon>AddCarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CarForms\CarsForm.cs" />
+    <Compile Include="Forms\CarForms\CarsForm.Designer.cs">
+      <DependentUpon>CarsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\AddCustomerForm.cs" />
+    <Compile Include="Forms\CustomerForms\AddCustomerForm.Designer.cs">
+      <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\CustomersForm.cs" />
+    <Compile Include="Forms\CustomerForms\CustomersForm.Designer.cs">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Car\CarForms\Add_Car_Form.Designer.cs">
-      <DependentUpon>Add_Car_Form.cs</DependentUpon>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Car\CarForms\Cars_form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Car\CarForms\Cars_form.Designer.cs">
-      <DependentUpon>Cars_form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Car\Cars_File_indexes.cs" />
-    <Compile Include="Car\Car_information.cs" />
-    <Compile Include="Customer\Customer.cs" />
-    <Compile Include="Customer\CustomerForms\Add_Customer_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Customer\CustomerForms\Add_Customer_Form.Designer.cs">
-      <DependentUpon>Add_Customer_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\CustomerForms\Customers_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Customer\CustomerForms\Customers_Form.Designer.cs">
-      <DependentUpon>Customers_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\CustomerService.cs" />
-    <Compile Include="Customer\Customers_File_indexes.cs" />
-    <Compile Include="Main_form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main_form.Designer.cs">
-      <DependentUpon>Main_form.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Car\Car_information.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Car\CarForms\Add_Car_Form.resx">
-      <DependentUpon>Add_Car_Form.cs</DependentUpon>
+    <Compile Include="Sevrices\CustomerService.cs" />
+    <EmbeddedResource Include="Forms\CarForms\AddCarForm.resx">
+      <DependentUpon>AddCarForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Car\CarForms\Cars_form.resx">
-      <DependentUpon>Cars_form.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CarForms\CarsForm.resx">
+      <DependentUpon>CarsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\CustomerForms\Add_Customer_Form.resx">
-      <DependentUpon>Add_Customer_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CustomerForms\AddCustomerForm.resx">
+      <DependentUpon>AddCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\CustomerForms\Customers_Form.resx">
-      <DependentUpon>Customers_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CustomerForms\CustomersForm.resx">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main_form.resx">
-      <DependentUpon>Main_form.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

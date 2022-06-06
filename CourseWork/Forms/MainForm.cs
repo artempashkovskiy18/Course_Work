@@ -3,25 +3,25 @@ using System.Windows.Forms;
 
 namespace CourseWork
 {
-    public partial class Main_form : Form
+    public partial class MainForm : Form
     {
-        public Main_form()
+        public MainForm()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Cars_Form newForm = new Cars_Form();
+            CarsForm newForm = new CarsForm();
             newForm.Show();
-            this.Hide();
+            Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Customers_Form newForm = new Customers_Form();
+            CustomersForm newForm = new CustomersForm();
             newForm.Show();
-            this.Hide();
+            Hide();
         }
 
         private void Main_form_FormClosing(object sender, FormClosingEventArgs e)

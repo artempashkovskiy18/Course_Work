@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace CourseWork
 {
-    public partial class Add_Car_Form : Form
+    public partial class AddCarForm : Form
     {
-        public Add_Car_Form()
+        public AddCarForm()
         {
             InitializeComponent();
         }
@@ -53,8 +53,8 @@ namespace CourseWork
 
         private void Add_Car_Form_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Cars_Form cars_form = new Cars_Form();
-            cars_form.Show();
+            CarsForm carsForm = new CarsForm();
+            carsForm.Show();
         }
     }
 }
