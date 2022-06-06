@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using CourseWork.Repositories.Impl;
+using CourseWork.Sevrices;
 
 namespace CourseWork
 {
-    public static class CustomerService
+    public class CustomerService : ICustomerService
     {
-        public static List<Car> Get_Suitable_Cars(List<Car> cars, Customer customer)
+        private CustomerRepository repository = new CustomerRepository();
+        public List<Car> GetSuitableCars(List<Car> cars, Customer customer)
         {
             List<Car> suitableCars = new List<Car>();
             
@@ -82,6 +85,21 @@ namespace CourseWork
             
 
             return suitableCars;
+        }
+
+        public void PutAllCustomersInFile(List<Customer> customers)
+        {
+            repository.PutAllCustomersInFile(customers, FilePath.customers_File_Path);
+        }
+
+        public List<Customer> GetALlCustomersFromFile()
+        {
+            return repository.GetALlCustomersFromFile(FilePath.customers_File_Path);
+        }
+
+        public void PutOneCustomerInFile(Customer customer)
+        {
+            repository.PutOneCustomerInFile(customer, FilePath.customers_File_Path);
         }
     }
 }

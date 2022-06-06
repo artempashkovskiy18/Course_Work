@@ -29,41 +29,41 @@ namespace CourseWork
         /// </summary>
         private void InitializeComponent()
         {
-            this.Brand_TextBox = new System.Windows.Forms.TextBox();
+            this.BrandTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Close_Form_Button = new System.Windows.Forms.Button();
             this.Add_New_Car_Button = new System.Windows.Forms.Button();
-            this.Release_Year_TextBox = new System.Windows.Forms.TextBox();
+            this.ReleaseYearTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Cylinder_Amount_TextBox = new System.Windows.Forms.TextBox();
+            this.CylinderAmountTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Volume_TextBox = new System.Windows.Forms.TextBox();
+            this.VolumeTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.Horse_Power_TextBox = new System.Windows.Forms.TextBox();
+            this.HorsePowerTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.Transmission_Type_TextBox = new System.Windows.Forms.TextBox();
+            this.TransmissionTypeTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.Length_TextBox = new System.Windows.Forms.TextBox();
+            this.LengthTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.Width_TextBox = new System.Windows.Forms.TextBox();
+            this.WidthTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.Height_TextBox = new System.Windows.Forms.TextBox();
+            this.HeightTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.Price_TextBox = new System.Windows.Forms.TextBox();
+            this.PriceTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.Peculiarities_TextBox = new System.Windows.Forms.TextBox();
+            this.PeculiaritiesTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.Condition_TextBox = new System.Windows.Forms.TextBox();
+            this.ConditionTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Brand_TextBox
             // 
-            this.Brand_TextBox.Location = new System.Drawing.Point(12, 111);
-            this.Brand_TextBox.Name = "Brand_TextBox";
-            this.Brand_TextBox.Size = new System.Drawing.Size(75, 20);
-            this.Brand_TextBox.TabIndex = 0;
+            this.BrandTextBox.Location = new System.Drawing.Point(12, 111);
+            this.BrandTextBox.Name = "BrandTextBox";
+            this.BrandTextBox.Size = new System.Drawing.Size(75, 20);
+            this.BrandTextBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -96,10 +96,10 @@ namespace CourseWork
             // 
             // Release_Year_TextBox
             // 
-            this.Release_Year_TextBox.Location = new System.Drawing.Point(93, 111);
-            this.Release_Year_TextBox.Name = "Release_Year_TextBox";
-            this.Release_Year_TextBox.Size = new System.Drawing.Size(63, 20);
-            this.Release_Year_TextBox.TabIndex = 4;
+            this.ReleaseYearTextBox.Location = new System.Drawing.Point(93, 111);
+            this.ReleaseYearTextBox.Name = "ReleaseYearTextBox";
+            this.ReleaseYearTextBox.Size = new System.Drawing.Size(63, 20);
+            this.ReleaseYearTextBox.TabIndex = 4;
             // 
             // label2
             // 
@@ -122,10 +122,10 @@ namespace CourseWork
             // 
             // Cylinder_Amount_TextBox
             // 
-            this.Cylinder_Amount_TextBox.Location = new System.Drawing.Point(162, 111);
-            this.Cylinder_Amount_TextBox.Name = "Cylinder_Amount_TextBox";
-            this.Cylinder_Amount_TextBox.Size = new System.Drawing.Size(51, 20);
-            this.Cylinder_Amount_TextBox.TabIndex = 6;
+            this.CylinderAmountTextBox.Location = new System.Drawing.Point(162, 111);
+            this.CylinderAmountTextBox.Name = "CylinderAmountTextBox";
+            this.CylinderAmountTextBox.Size = new System.Drawing.Size(51, 20);
+            this.CylinderAmountTextBox.TabIndex = 6;
             // 
             // label4
             // 
@@ -138,10 +138,10 @@ namespace CourseWork
             // 
             // Volume_TextBox
             // 
-            this.Volume_TextBox.Location = new System.Drawing.Point(219, 111);
-            this.Volume_TextBox.Name = "Volume_TextBox";
-            this.Volume_TextBox.Size = new System.Drawing.Size(46, 20);
-            this.Volume_TextBox.TabIndex = 8;
+            this.VolumeTextBox.Location = new System.Drawing.Point(219, 111);
+            this.VolumeTextBox.Name = "VolumeTextBox";
+            this.VolumeTextBox.Size = new System.Drawing.Size(46, 20);
+            this.VolumeTextBox.TabIndex = 8;
             // 
             // label5
             // 
@@ -154,10 +154,10 @@ namespace CourseWork
             // 
             // Horse_Power_TextBox
             // 
-            this.Horse_Power_TextBox.Location = new System.Drawing.Point(271, 111);
-            this.Horse_Power_TextBox.Name = "Horse_Power_TextBox";
-            this.Horse_Power_TextBox.Size = new System.Drawing.Size(61, 20);
-            this.Horse_Power_TextBox.TabIndex = 10;
+            this.HorsePowerTextBox.Location = new System.Drawing.Point(271, 111);
+            this.HorsePowerTextBox.Name = "HorsePowerTextBox";
+            this.HorsePowerTextBox.Size = new System.Drawing.Size(61, 20);
+            this.HorsePowerTextBox.TabIndex = 10;
             // 
             // label6
             // 
@@ -171,10 +171,10 @@ namespace CourseWork
             // 
             // Transmission_Type_TextBox
             // 
-            this.Transmission_Type_TextBox.Location = new System.Drawing.Point(338, 111);
-            this.Transmission_Type_TextBox.Name = "Transmission_Type_TextBox";
-            this.Transmission_Type_TextBox.Size = new System.Drawing.Size(60, 20);
-            this.Transmission_Type_TextBox.TabIndex = 12;
+            this.TransmissionTypeTextBox.Location = new System.Drawing.Point(338, 111);
+            this.TransmissionTypeTextBox.Name = "TransmissionTypeTextBox";
+            this.TransmissionTypeTextBox.Size = new System.Drawing.Size(60, 20);
+            this.TransmissionTypeTextBox.TabIndex = 12;
             // 
             // label7
             // 
@@ -187,10 +187,10 @@ namespace CourseWork
             // 
             // Length_TextBox
             // 
-            this.Length_TextBox.Location = new System.Drawing.Point(404, 111);
-            this.Length_TextBox.Name = "Length_TextBox";
-            this.Length_TextBox.Size = new System.Drawing.Size(52, 20);
-            this.Length_TextBox.TabIndex = 14;
+            this.LengthTextBox.Location = new System.Drawing.Point(404, 111);
+            this.LengthTextBox.Name = "LengthTextBox";
+            this.LengthTextBox.Size = new System.Drawing.Size(52, 20);
+            this.LengthTextBox.TabIndex = 14;
             // 
             // label8
             // 
@@ -202,10 +202,10 @@ namespace CourseWork
             // 
             // Width_TextBox
             // 
-            this.Width_TextBox.Location = new System.Drawing.Point(465, 111);
-            this.Width_TextBox.Name = "Width_TextBox";
-            this.Width_TextBox.Size = new System.Drawing.Size(43, 20);
-            this.Width_TextBox.TabIndex = 16;
+            this.WidthTextBox.Location = new System.Drawing.Point(465, 111);
+            this.WidthTextBox.Name = "WidthTextBox";
+            this.WidthTextBox.Size = new System.Drawing.Size(43, 20);
+            this.WidthTextBox.TabIndex = 16;
             // 
             // label9
             // 
@@ -218,10 +218,10 @@ namespace CourseWork
             // 
             // Height_TextBox
             // 
-            this.Height_TextBox.Location = new System.Drawing.Point(514, 111);
-            this.Height_TextBox.Name = "Height_TextBox";
-            this.Height_TextBox.Size = new System.Drawing.Size(40, 20);
-            this.Height_TextBox.TabIndex = 18;
+            this.HeightTextBox.Location = new System.Drawing.Point(514, 111);
+            this.HeightTextBox.Name = "HeightTextBox";
+            this.HeightTextBox.Size = new System.Drawing.Size(40, 20);
+            this.HeightTextBox.TabIndex = 18;
             // 
             // label10
             // 
@@ -234,10 +234,10 @@ namespace CourseWork
             // 
             // Price_TextBox
             // 
-            this.Price_TextBox.Location = new System.Drawing.Point(817, 111);
-            this.Price_TextBox.Name = "Price_TextBox";
-            this.Price_TextBox.Size = new System.Drawing.Size(72, 20);
-            this.Price_TextBox.TabIndex = 20;
+            this.PriceTextBox.Location = new System.Drawing.Point(817, 111);
+            this.PriceTextBox.Name = "PriceTextBox";
+            this.PriceTextBox.Size = new System.Drawing.Size(72, 20);
+            this.PriceTextBox.TabIndex = 20;
             // 
             // label11
             // 
@@ -259,10 +259,10 @@ namespace CourseWork
             // 
             // Peculiarities_TextBox
             // 
-            this.Peculiarities_TextBox.Location = new System.Drawing.Point(560, 111);
-            this.Peculiarities_TextBox.Name = "Peculiarities_TextBox";
-            this.Peculiarities_TextBox.Size = new System.Drawing.Size(173, 20);
-            this.Peculiarities_TextBox.TabIndex = 23;
+            this.PeculiaritiesTextBox.Location = new System.Drawing.Point(560, 111);
+            this.PeculiaritiesTextBox.Name = "PeculiaritiesTextBox";
+            this.PeculiaritiesTextBox.Size = new System.Drawing.Size(173, 20);
+            this.PeculiaritiesTextBox.TabIndex = 23;
             // 
             // label13
             // 
@@ -275,10 +275,10 @@ namespace CourseWork
             // 
             // Condition_TextBox
             // 
-            this.Condition_TextBox.Location = new System.Drawing.Point(739, 111);
-            this.Condition_TextBox.Name = "Condition_TextBox";
-            this.Condition_TextBox.Size = new System.Drawing.Size(72, 20);
-            this.Condition_TextBox.TabIndex = 25;
+            this.ConditionTextBox.Location = new System.Drawing.Point(739, 111);
+            this.ConditionTextBox.Name = "ConditionTextBox";
+            this.ConditionTextBox.Size = new System.Drawing.Size(72, 20);
+            this.ConditionTextBox.TabIndex = 25;
             // 
             // Add_Car_Form
             // 
@@ -286,32 +286,32 @@ namespace CourseWork
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 204);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.Condition_TextBox);
+            this.Controls.Add(this.ConditionTextBox);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.Peculiarities_TextBox);
+            this.Controls.Add(this.PeculiaritiesTextBox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.Price_TextBox);
+            this.Controls.Add(this.PriceTextBox);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.Height_TextBox);
+            this.Controls.Add(this.HeightTextBox);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.Width_TextBox);
+            this.Controls.Add(this.WidthTextBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.Length_TextBox);
+            this.Controls.Add(this.LengthTextBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.Transmission_Type_TextBox);
+            this.Controls.Add(this.TransmissionTypeTextBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.Horse_Power_TextBox);
+            this.Controls.Add(this.HorsePowerTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.Volume_TextBox);
+            this.Controls.Add(this.VolumeTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.Cylinder_Amount_TextBox);
+            this.Controls.Add(this.CylinderAmountTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.Release_Year_TextBox);
+            this.Controls.Add(this.ReleaseYearTextBox);
             this.Controls.Add(this.Add_New_Car_Button);
             this.Controls.Add(this.Close_Form_Button);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Brand_TextBox);
+            this.Controls.Add(this.BrandTextBox);
             this.Name = "AddCarForm";
             this.Text = "Add_Car_Form";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddCarForm_FormClosed);
@@ -322,32 +322,32 @@ namespace CourseWork
 
         #endregion
 
-        private System.Windows.Forms.TextBox Brand_TextBox;
+        private System.Windows.Forms.TextBox BrandTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Close_Form_Button;
         private System.Windows.Forms.Button Add_New_Car_Button;
-        private System.Windows.Forms.TextBox Release_Year_TextBox;
+        private System.Windows.Forms.TextBox ReleaseYearTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Cylinder_Amount_TextBox;
+        private System.Windows.Forms.TextBox CylinderAmountTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox Volume_TextBox;
+        private System.Windows.Forms.TextBox VolumeTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox Horse_Power_TextBox;
+        private System.Windows.Forms.TextBox HorsePowerTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox Transmission_Type_TextBox;
+        private System.Windows.Forms.TextBox TransmissionTypeTextBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox Length_TextBox;
+        private System.Windows.Forms.TextBox LengthTextBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox Width_TextBox;
+        private System.Windows.Forms.TextBox WidthTextBox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox Height_TextBox;
+        private System.Windows.Forms.TextBox HeightTextBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox Price_TextBox;
+        private System.Windows.Forms.TextBox PriceTextBox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox Peculiarities_TextBox;
+        private System.Windows.Forms.TextBox PeculiaritiesTextBox;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox Condition_TextBox;
+        private System.Windows.Forms.TextBox ConditionTextBox;
     }
 }

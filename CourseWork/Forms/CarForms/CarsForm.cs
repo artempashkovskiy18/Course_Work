@@ -30,6 +30,7 @@ namespace CourseWork
         List<ListBox> listboxes = new List<ListBox>();
         int selectedIndex = 0;
         private bool displayAllCars = true;
+        private CarService service = new CarService();
 
 
         private void SaveInfoBeforeClose()
@@ -151,7 +152,7 @@ namespace CourseWork
             
             if (displayAllCars)
             {
-                GetInfoFromFile();
+                cars = service.GetALlCarsFromFile();
             }
             else
             {
@@ -172,7 +173,7 @@ namespace CourseWork
                     MainForm mainForm = new MainForm();
                     mainForm.Show();
                 }
-                SaveInfoBeforeClose();
+                service.PutAllCarsInFile(cars);
             }
             else
             {

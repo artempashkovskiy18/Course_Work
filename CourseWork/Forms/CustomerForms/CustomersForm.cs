@@ -25,6 +25,9 @@ namespace CourseWork
         List<ListBox> listboxes = new List<ListBox>();
         int selectedIndex = 0;
 
+        private CustomerService customerService = new CustomerService();
+        private CarService carService = new CarService();
+
         private void SaveInfoBeforeClose()
         {
             using (StreamWriter w = new StreamWriter("customers.txt"))
@@ -177,19 +180,19 @@ namespace CourseWork
         {
             listboxes = GetListBoxes();
             
-            GetCustomersFromFile();
-            GetCarsFromFile();
+            customers = customerService.GetALlCustomersFromFile();
+            cars = carService.GetALlCarsFromFile();
             
             PutToListBoxes();
         }
         private void CustomersForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.DialogResult == DialogResult.None)
+            if (DialogResult == DialogResult.None)
             {
                 MainForm mainForm = new MainForm();
                 mainForm.Show();
             }
-            SaveInfoBeforeClose();
+            customerService.PutAllCustomersInFile(customers);
         }
 
 
@@ -225,7 +228,7 @@ namespace CourseWork
         }
         private void GetSuitableCarsButton_Click(object sender, EventArgs e)
         {
-            List<Car> suitableCars = Get_Suitable_Cars(cars, customers[selectedIndex]);
+            List<Car> suitableCars = customerService.GetSuitableCars(cars, customers[selectedIndex]);
             
 
             CarsForm carsForm = new CarsForm(false, suitableCars);

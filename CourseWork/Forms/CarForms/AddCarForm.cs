@@ -11,16 +11,18 @@ namespace CourseWork
             InitializeComponent();
         }
 
+        private Car addingCar = new Car();
+        private CarService service = new CarService();
 
         private void AddToFile()
         {
             using (StreamWriter w = new StreamWriter("cars.txt", true))
             {
                 string temp = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11}",
-                    Brand_TextBox.Text, Release_Year_TextBox.Text, Price_TextBox.Text,
-                    Cylinder_Amount_TextBox.Text, Volume_TextBox.Text, Horse_Power_TextBox.Text,
-                    Transmission_Type_TextBox.Text, Length_TextBox.Text, Width_TextBox.Text,
-                    Height_TextBox.Text, Peculiarities_TextBox.Text, Condition_TextBox.Text);
+                    BrandTextBox.Text, ReleaseYearTextBox.Text, PriceTextBox.Text,
+                    CylinderAmountTextBox.Text, VolumeTextBox.Text, HorsePowerTextBox.Text,
+                    TransmissionTypeTextBox.Text, LengthTextBox.Text, WidthTextBox.Text,
+                    HeightTextBox.Text, PeculiaritiesTextBox.Text, ConditionTextBox.Text);
 
                 w.WriteLine(temp);
             }
@@ -35,12 +37,25 @@ namespace CourseWork
 
         private void AddNewCarButton_Click(object sender, EventArgs e)
         {
-            if(Brand_TextBox.Text != "" && Release_Year_TextBox.Text != "" && Price_TextBox.Text != "" &&
-                    Cylinder_Amount_TextBox.Text != "" && Volume_TextBox.Text != "" && Horse_Power_TextBox.Text != "" &&
-                    Transmission_Type_TextBox.Text != "" && Length_TextBox.Text != "" && Width_TextBox.Text != "" &&
-                    Height_TextBox.Text != "" && Condition_TextBox.Text != "")
+            if(BrandTextBox.Text != "" && ReleaseYearTextBox.Text != "" && PriceTextBox.Text != "" &&
+                    CylinderAmountTextBox.Text != "" && VolumeTextBox.Text != "" && HorsePowerTextBox.Text != "" &&
+                    TransmissionTypeTextBox.Text != "" && LengthTextBox.Text != "" && WidthTextBox.Text != "" &&
+                    HeightTextBox.Text != "" && ConditionTextBox.Text != "")
             {
-                AddToFile();
+                addingCar.brand = BrandTextBox.Text;
+                addingCar.releaseYear = int.Parse(ReleaseYearTextBox.Text);
+                addingCar.characteristics.engine.cylinderAmount = int.Parse(CylinderAmountTextBox.Text);
+                addingCar.characteristics.engine.volume = int.Parse(VolumeTextBox.Text);
+                addingCar.characteristics.engine.horsePower = int.Parse(HorsePowerTextBox.Text);
+                addingCar.characteristics.transmissionType = CylinderAmountTextBox.Text;
+                addingCar.characteristics.dimensions.length = int.Parse(LengthTextBox.Text);
+                addingCar.characteristics.dimensions.width = int.Parse(WidthTextBox.Text);
+                addingCar.characteristics.dimensions.height = int.Parse(HeightTextBox.Text);
+                addingCar.peculiarities = PeculiaritiesTextBox.Text;
+                addingCar.condition = ConditionTextBox.Text;
+                addingCar.price = int.Parse(PriceTextBox.Text);
+                
+                service.PutOneCarInFile(addingCar);
                 Close();
             }
             else

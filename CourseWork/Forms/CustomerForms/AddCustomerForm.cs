@@ -11,6 +11,7 @@ namespace CourseWork
             InitializeComponent();
         }
         Customer addingCustomer = new Customer();
+        private CustomerService service = new CustomerService();
 
         private int CheckIsTextBoxEmpty(TextBox textBox)
         {
@@ -42,7 +43,7 @@ namespace CourseWork
                         customer.requiredCar.condition,
                         customer.contacts,
                         customer.finances);
-
+            
                 w.WriteLine(temp);
             }
         }
@@ -79,7 +80,7 @@ namespace CourseWork
             else
             {
                 addingCustomer.contacts = ContactsTextBox.Text;
-                AddCustomerToFile(addingCustomer);
+                service.PutOneCustomerInFile(addingCustomer);
                 Close();
             }
         }
