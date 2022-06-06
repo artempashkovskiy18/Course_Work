@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using static CourseWork.Car_information;
 using static CourseWork.CarsFileIndexes;
 using static CourseWork.CustomersFileIndexes;
 using static CourseWork.CustomerService;
@@ -33,18 +32,18 @@ namespace CourseWork
                 foreach (Customer element in customers)
                 {
                     string temp = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",
-                        element.required_car.brand,
-                        element.required_car.release_year,
-                        element.required_car.price,
-                        element.required_car.characteristics.engine.cylinder_amount,
-                        element.required_car.characteristics.engine.volume,
-                        element.required_car.characteristics.engine.horse_power,
-                        element.required_car.characteristics.transmission_type,
-                        element.required_car.characteristics.dimensions.length,
-                        element.required_car.characteristics.dimensions.width,
-                        element.required_car.characteristics.dimensions.height,
-                        element.required_car.peculiarities,
-                        element.required_car.condition,
+                        element.requiredCar.brand,
+                        element.requiredCar.releaseYear,
+                        element.requiredCar.price,
+                        element.requiredCar.characteristics.engine.cylinderAmount,
+                        element.requiredCar.characteristics.engine.volume,
+                        element.requiredCar.characteristics.engine.horsePower,
+                        element.requiredCar.characteristics.transmissionType,
+                        element.requiredCar.characteristics.dimensions.length,
+                        element.requiredCar.characteristics.dimensions.width,
+                        element.requiredCar.characteristics.dimensions.height,
+                        element.requiredCar.peculiarities,
+                        element.requiredCar.condition,
                         element.contacts,
                         element.finances);
 
@@ -110,17 +109,17 @@ namespace CourseWork
             
             foreach (Customer customer in customers)
             {
-                brandListBox.Items.Add(customer.required_car.brand);
-                releaseYearListBox.Items.Add(customer.required_car.release_year);
-                cylinderAmountListBox.Items.Add(customer.required_car.characteristics.engine.cylinder_amount);
-                volumeListBox.Items.Add(customer.required_car.characteristics.engine.volume);
-                horsePowerListBox.Items.Add(customer.required_car.characteristics.engine.horse_power);
-                transmissionTypeListBox.Items.Add(customer.required_car.characteristics.transmission_type);
-                lengthListBox.Items.Add(customer.required_car.characteristics.dimensions.length);
-                widthListBox.Items.Add(customer.required_car.characteristics.dimensions.width);
-                heightListBox.Items.Add(customer.required_car.characteristics.dimensions.height);
-                peculiaritiesListBox.Items.Add(customer.required_car.peculiarities);
-                conditionListBox.Items.Add(customer.required_car.condition);
+                brandListBox.Items.Add(customer.requiredCar.brand);
+                releaseYearListBox.Items.Add(customer.requiredCar.releaseYear);
+                cylinderAmountListBox.Items.Add(customer.requiredCar.characteristics.engine.cylinderAmount);
+                volumeListBox.Items.Add(customer.requiredCar.characteristics.engine.volume);
+                horsePowerListBox.Items.Add(customer.requiredCar.characteristics.engine.horsePower);
+                transmissionTypeListBox.Items.Add(customer.requiredCar.characteristics.transmissionType);
+                lengthListBox.Items.Add(customer.requiredCar.characteristics.dimensions.length);
+                widthListBox.Items.Add(customer.requiredCar.characteristics.dimensions.width);
+                heightListBox.Items.Add(customer.requiredCar.characteristics.dimensions.height);
+                peculiaritiesListBox.Items.Add(customer.requiredCar.peculiarities);
+                conditionListBox.Items.Add(customer.requiredCar.condition);
                 financesListBox.Items.Add(customer.finances);
                 contactsListBox.Items.Add(customer.contacts);
             }
@@ -295,56 +294,56 @@ namespace CourseWork
 
         private void BrandListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selectedIndex].required_car.brand = 
+            customers[selectedIndex].requiredCar.brand = 
                 ChangeStringValue(brandListBox);
         }
         private void ReleaseYearListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selectedIndex].required_car.release_year = int.Parse(ChangeIntValue(releaseYearListBox));
+            customers[selectedIndex].requiredCar.releaseYear = int.Parse(ChangeIntValue(releaseYearListBox));
         }
         private void CylinderAmountListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selectedIndex].required_car.characteristics.engine.cylinder_amount = 
+            customers[selectedIndex].requiredCar.characteristics.engine.cylinderAmount = 
                 int.Parse(ChangeIntValue(cylinderAmountListBox));
         }
         private void VolumeListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selectedIndex].required_car.characteristics.engine.volume =
+            customers[selectedIndex].requiredCar.characteristics.engine.volume =
                 int.Parse(ChangeIntValue(volumeListBox));
         }
         private void HorsePowerListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selectedIndex].required_car.characteristics.engine.horse_power =
+            customers[selectedIndex].requiredCar.characteristics.engine.horsePower =
                 int.Parse(ChangeIntValue(horsePowerListBox));
         }
         private void TransmissionTypeListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selectedIndex].required_car.characteristics.transmission_type =
+            customers[selectedIndex].requiredCar.characteristics.transmissionType =
                 ChangeStringValue(transmissionTypeListBox);
         }
         private void LengthListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selectedIndex].required_car.characteristics.dimensions.length =
+            customers[selectedIndex].requiredCar.characteristics.dimensions.length =
                 int.Parse(ChangeIntValue(lengthListBox));
         }
         private void WidthListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selectedIndex].required_car.characteristics.dimensions.width =
+            customers[selectedIndex].requiredCar.characteristics.dimensions.width =
                    int.Parse(ChangeIntValue(widthListBox));
         }
         private void HeightListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selectedIndex].required_car.characteristics.dimensions.height =
+            customers[selectedIndex].requiredCar.characteristics.dimensions.height =
                  int.Parse(ChangeIntValue(heightListBox));
         }
         private void PeculiaritiesListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selectedIndex].required_car.peculiarities =
+            customers[selectedIndex].requiredCar.peculiarities =
                 ChangeStringValue(lengthListBox);
         }
         private void ConditionListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            customers[selectedIndex].required_car.condition =
+            customers[selectedIndex].requiredCar.condition =
                 ChangeStringValue(conditionListBox);
         }
         private void FinancesListBox_MouseDoubleClick(object sender, MouseEventArgs e)

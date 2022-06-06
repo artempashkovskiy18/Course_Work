@@ -71,7 +71,10 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Car\Car_information.cs" />
+    <Compile Include="Models\Car\Car.cs" />
+    <Compile Include="Models\Car\Dimensions.cs" />
+    <Compile Include="Models\Car\Engine.cs" />
+    <Compile Include="Models\Car\OverallCharacteristics.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

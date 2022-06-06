@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using static CourseWork.Car_information;
 using static CourseWork.CarsFileIndexes;
 
 namespace CourseWork
@@ -41,12 +40,12 @@ namespace CourseWork
                 {
                     string temp = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11}",
                         element.brand, 
-                        element.release_year,
+                        element.releaseYear,
                         element.price,
-                        element.characteristics.engine.cylinder_amount,
+                        element.characteristics.engine.cylinderAmount,
                         element.characteristics.engine.volume, 
-                        element.characteristics.engine.horse_power,
-                        element.characteristics.transmission_type,
+                        element.characteristics.engine.horsePower,
+                        element.characteristics.transmissionType,
                         element.characteristics.dimensions.length,
                         element.characteristics.dimensions.width,
                         element.characteristics.dimensions.height,
@@ -88,11 +87,11 @@ namespace CourseWork
             foreach (Car car in cars)
             {
                 brandListBox.Items.Add(car.brand);
-                releaseYearListBox.Items.Add(car.release_year);
-                cylinderAmountListBox.Items.Add(car.characteristics.engine.cylinder_amount);
+                releaseYearListBox.Items.Add(car.releaseYear);
+                cylinderAmountListBox.Items.Add(car.characteristics.engine.cylinderAmount);
                 volumeListBox.Items.Add(car.characteristics.engine.volume);
-                horsePowerListBox.Items.Add(car.characteristics.engine.horse_power);
-                transmissionTypeListBox.Items.Add(car.characteristics.transmission_type);
+                horsePowerListBox.Items.Add(car.characteristics.engine.horsePower);
+                transmissionTypeListBox.Items.Add(car.characteristics.transmissionType);
                 lengthListBox.Items.Add(car.characteristics.dimensions.length);
                 widthListBox.Items.Add(car.characteristics.dimensions.width);
                 heightListBox.Items.Add(car.characteristics.dimensions.height);

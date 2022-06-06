@@ -12,7 +12,7 @@ namespace CourseWork
         }
 
 
-        private void Add_To_File()
+        private void AddToFile()
         {
             using (StreamWriter w = new StreamWriter("cars.txt", true))
             {
@@ -28,20 +28,20 @@ namespace CourseWork
 
 
 
-        private void Close_Form_Button_Click(object sender, EventArgs e)
+        private void CloseFormButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
-        private void Add_New_Car_Button_Click(object sender, EventArgs e)
+        private void AddNewCarButton_Click(object sender, EventArgs e)
         {
             if(Brand_TextBox.Text != "" && Release_Year_TextBox.Text != "" && Price_TextBox.Text != "" &&
                     Cylinder_Amount_TextBox.Text != "" && Volume_TextBox.Text != "" && Horse_Power_TextBox.Text != "" &&
                     Transmission_Type_TextBox.Text != "" && Length_TextBox.Text != "" && Width_TextBox.Text != "" &&
                     Height_TextBox.Text != "" && Condition_TextBox.Text != "")
             {
-                Add_To_File();
-                this.Close();
+                AddToFile();
+                Close();
             }
             else
             {
@@ -51,7 +51,7 @@ namespace CourseWork
         }
 
 
-        private void Add_Car_Form_FormClosed(object sender, FormClosedEventArgs e)
+        private void AddCarForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             CarsForm carsForm = new CarsForm();
             carsForm.Show();

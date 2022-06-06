@@ -82,7 +82,7 @@ namespace CourseWork
             this.Close_Form_Button.TabIndex = 2;
             this.Close_Form_Button.Text = "закрити форму";
             this.Close_Form_Button.UseVisualStyleBackColor = true;
-            this.Close_Form_Button.Click += new System.EventHandler(this.Close_Form_Button_Click);
+            this.Close_Form_Button.Click += new System.EventHandler(this.CloseFormButton_Click);
             // 
             // Add_New_Car_Button
             // 
@@ -92,7 +92,7 @@ namespace CourseWork
             this.Add_New_Car_Button.TabIndex = 3;
             this.Add_New_Car_Button.Text = "додати";
             this.Add_New_Car_Button.UseVisualStyleBackColor = true;
-            this.Add_New_Car_Button.Click += new System.EventHandler(this.Add_New_Car_Button_Click);
+            this.Add_New_Car_Button.Click += new System.EventHandler(this.AddNewCarButton_Click);
             // 
             // Release_Year_TextBox
             // 
@@ -314,7 +314,7 @@ namespace CourseWork
             this.Controls.Add(this.Brand_TextBox);
             this.Name = "AddCarForm";
             this.Text = "Add_Car_Form";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Add_Car_Form_FormClosed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddCarForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
