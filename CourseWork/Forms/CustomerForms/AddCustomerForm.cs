@@ -24,30 +24,7 @@ namespace CourseWork
                 return int.Parse(textBox.Text);
             }
         }
-        private void AddCustomerToFile(Customer customer)
-        {
-            using (StreamWriter w = new StreamWriter("customers.txt", true))
-            {
-                string temp = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",
-                        customer.requiredCar.brand,
-                        customer.requiredCar.releaseYear,
-                        customer.requiredCar.price,
-                        customer.requiredCar.characteristics.engine.cylinderAmount,
-                        customer.requiredCar.characteristics.engine.volume,
-                        customer.requiredCar.characteristics.engine.horsePower,
-                        customer.requiredCar.characteristics.transmissionType,
-                        customer.requiredCar.characteristics.dimensions.length,
-                        customer.requiredCar.characteristics.dimensions.width,
-                        customer.requiredCar.characteristics.dimensions.height,
-                        customer.requiredCar.peculiarities,
-                        customer.requiredCar.condition,
-                        customer.contacts,
-                        customer.finances);
-            
-                w.WriteLine(temp);
-            }
-        }
-
+        
 
 
         private void CloseFormButton_Click(object sender, EventArgs e)

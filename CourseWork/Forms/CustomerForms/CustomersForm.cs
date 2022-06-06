@@ -54,54 +54,7 @@ namespace CourseWork
                 }
             }
         }
-        private void GetCustomersFromFile()
-        {
-            foreach (string line in File.ReadLines("customers.txt"))
-            {
-                List<string> cutomerInfo = line.Split(',').ToList();
-
-                Car car = new Car(
-                    cutomerInfo[brand_index],
-                    int.Parse(cutomerInfo[release_year_index]),
-                    int.Parse(cutomerInfo[price_index]),
-                    int.Parse(cutomerInfo[cylinder_amount_index]),
-                    int.Parse(cutomerInfo[volume_index]),
-                    int.Parse(cutomerInfo[horse_power_index]),
-                    cutomerInfo[transmission_type_index],
-                    int.Parse(cutomerInfo[length_index]),
-                    int.Parse(cutomerInfo[width_index]),
-                    int.Parse(cutomerInfo[height_index]),
-                    cutomerInfo[peculiarities_index],
-                    cutomerInfo[condition_index]);
-
-                Customer temp = new Customer(cutomerInfo[contacts_index], car, int.Parse(cutomerInfo[finances_index]));
-
-                customers.Add(temp);
-            }
-        }
-        private void GetCarsFromFile()
-        {
-            foreach (string line in File.ReadLines("cars.txt"))
-            {
-                List<string> carInfo = line.Split(',').ToList();
-
-                Car car = new Car(
-                    carInfo[brand_index],
-                    int.Parse(carInfo[release_year_index]),
-                    int.Parse(carInfo[price_index]),
-                    int.Parse(carInfo[cylinder_amount_index]),
-                    int.Parse(carInfo[volume_index]),
-                    int.Parse(carInfo[horse_power_index]),
-                    carInfo[transmission_type_index],
-                    int.Parse(carInfo[length_index]),
-                    int.Parse(carInfo[width_index]),
-                    int.Parse(carInfo[height_index]),
-                    carInfo[peculiarities_index],
-                    carInfo[condition_index]);
-                
-                cars.Add(car);
-            }
-        }
+        
         private void PutToListBoxes()
         {
             foreach (ListBox listBox in listboxes)

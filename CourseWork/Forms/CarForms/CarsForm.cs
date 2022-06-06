@@ -33,50 +33,6 @@ namespace CourseWork
         private CarService service = new CarService();
 
 
-        private void SaveInfoBeforeClose()
-        {
-            using (StreamWriter w = new StreamWriter("cars.txt"))
-            {
-                foreach (Car element in cars)
-                {
-                    string temp = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11}",
-                        element.brand, 
-                        element.releaseYear,
-                        element.price,
-                        element.characteristics.engine.cylinderAmount,
-                        element.characteristics.engine.volume, 
-                        element.characteristics.engine.horsePower,
-                        element.characteristics.transmissionType,
-                        element.characteristics.dimensions.length,
-                        element.characteristics.dimensions.width,
-                        element.characteristics.dimensions.height,
-                        element.peculiarities, element.condition);
-        
-                    w.WriteLine(temp);
-                }
-            }
-        }
-        private void GetInfoFromFile()
-        {
-            foreach (string line in File.ReadLines("cars.txt"))
-            {
-                List<string> carInfo = line.Split(',').ToList();
-                Car temp = new Car(carInfo[brand_index],
-                    int.Parse(carInfo[release_year_index]),
-                    int.Parse(carInfo[price_index]),
-                    int.Parse(carInfo[cylinder_amount_index]),
-                    int.Parse(carInfo[volume_index]),
-                    int.Parse(carInfo[horse_power_index]),
-                    carInfo[transmission_type_index],
-                    int.Parse(carInfo[length_index]),
-                    int.Parse(carInfo[width_index]),
-                    int.Parse(carInfo[height_index]),
-                    carInfo[peculiarities_index],
-                    carInfo[condition_index]);
-
-                cars.Add(temp);
-            }
-        }
         private void PutToListBoxes()
         {
             //clearing listboxes

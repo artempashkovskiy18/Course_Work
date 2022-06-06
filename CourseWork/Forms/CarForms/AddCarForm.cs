@@ -14,19 +14,6 @@ namespace CourseWork
         private Car addingCar = new Car();
         private CarService service = new CarService();
 
-        private void AddToFile()
-        {
-            using (StreamWriter w = new StreamWriter("cars.txt", true))
-            {
-                string temp = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11}",
-                    BrandTextBox.Text, ReleaseYearTextBox.Text, PriceTextBox.Text,
-                    CylinderAmountTextBox.Text, VolumeTextBox.Text, HorsePowerTextBox.Text,
-                    TransmissionTypeTextBox.Text, LengthTextBox.Text, WidthTextBox.Text,
-                    HeightTextBox.Text, PeculiaritiesTextBox.Text, ConditionTextBox.Text);
-
-                w.WriteLine(temp);
-            }
-        }
 
 
 
