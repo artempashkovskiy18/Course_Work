@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net;
 using System.Windows.Forms;
 
 namespace CourseWork
@@ -13,18 +14,16 @@ namespace CourseWork
         Customer addingCustomer = new Customer();
         private CustomerService service = new CustomerService();
 
-        private int CheckIsTextBoxEmpty(TextBox textBox)
+        private int CheckIsTextBoxEmptyAndRightFilled(TextBox textBox)
         {
-            if(textBox.Text == "")
+            if(textBox.Text == "" || !int.TryParse(textBox.Text, out int _))
             {
                 return -1;
             }
-            else
-            {
-                return int.Parse(textBox.Text);
-            }
+            
+            return int.Parse(textBox.Text);
+            
         }
-        
 
 
         private void CloseFormButton_Click(object sender, EventArgs e)
@@ -33,22 +32,24 @@ namespace CourseWork
         }
         private void AddNewCustomerButton_Click(object sender, EventArgs e)
         {
+            
             addingCustomer.requiredCar.brand = BrandTextBox.Text;
+            addingCustomer.requiredCar.releaseYear = CheckIsTextBoxEmptyAndRightFilled(ReleaseYearTextBox);
 
-            addingCustomer.requiredCar.characteristics.engine.cylinderAmount = CheckIsTextBoxEmpty(CylinderAmountTextBox);
-            addingCustomer.requiredCar.characteristics.engine.volume = CheckIsTextBoxEmpty(VolumeTextBox);
-            addingCustomer.requiredCar.characteristics.engine.horsePower = CheckIsTextBoxEmpty(HorsePowerTextBox);
+            addingCustomer.requiredCar.characteristics.engine.cylinderAmount = CheckIsTextBoxEmptyAndRightFilled(CylinderAmountTextBox);
+            addingCustomer.requiredCar.characteristics.engine.volume = CheckIsTextBoxEmptyAndRightFilled(VolumeTextBox);
+            addingCustomer.requiredCar.characteristics.engine.horsePower = CheckIsTextBoxEmptyAndRightFilled(HorsePowerTextBox);
 
             addingCustomer.requiredCar.characteristics.transmissionType = TransmissionTypeTextBox.Text;
 
-            addingCustomer.requiredCar.characteristics.dimensions.length = CheckIsTextBoxEmpty(LengthTextBox);
-            addingCustomer.requiredCar.characteristics.dimensions.width = CheckIsTextBoxEmpty(WidthTextBox);
-            addingCustomer.requiredCar.characteristics.dimensions.height = CheckIsTextBoxEmpty(HeightTextBox);
+            addingCustomer.requiredCar.characteristics.dimensions.length = CheckIsTextBoxEmptyAndRightFilled(LengthTextBox);
+            addingCustomer.requiredCar.characteristics.dimensions.width = CheckIsTextBoxEmptyAndRightFilled(WidthTextBox);
+            addingCustomer.requiredCar.characteristics.dimensions.height = CheckIsTextBoxEmptyAndRightFilled(HeightTextBox);
 
             addingCustomer.requiredCar.peculiarities = PeculiaritiesTextBox.Text;
             addingCustomer.requiredCar.condition = ConditionTextBox.Text;
 
-            addingCustomer.finances = CheckIsTextBoxEmpty(FinancesTextBox);
+            addingCustomer.finances = CheckIsTextBoxEmptyAndRightFilled(FinancesTextBox);
 
             if(ContactsTextBox.Text == "")
             {

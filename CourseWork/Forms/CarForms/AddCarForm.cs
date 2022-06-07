@@ -14,6 +14,19 @@ namespace CourseWork
         private Car addingCar = new Car();
         private CarService service = new CarService();
 
+        private bool AreRequiredTextBoxesRigthFilled()
+        {
+            return BrandTextBox.Text != "" && ReleaseYearTextBox.Text != "" && PriceTextBox.Text != "" &&
+                   CylinderAmountTextBox.Text != "" && VolumeTextBox.Text != "" && HorsePowerTextBox.Text != "" &&
+                   TransmissionTypeTextBox.Text != "" && LengthTextBox.Text != "" && WidthTextBox.Text != "" &&
+                   HeightTextBox.Text != "" && ConditionTextBox.Text != "" &&
+                   int.TryParse(ReleaseYearTextBox.Text, out int _) &&
+                   int.TryParse(PriceTextBox.Text, out int _) && int.TryParse(CylinderAmountTextBox.Text, out int _) &&
+                   int.TryParse(VolumeTextBox.Text, out int _) && int.TryParse(HorsePowerTextBox.Text, out int _) &&
+                   int.TryParse(LengthTextBox.Text, out int _) && int.TryParse(WidthTextBox.Text, out int _) &&
+                   int.TryParse(HeightTextBox.Text, out int _);
+        }
+
 
 
 
@@ -24,10 +37,7 @@ namespace CourseWork
 
         private void AddNewCarButton_Click(object sender, EventArgs e)
         {
-            if(BrandTextBox.Text != "" && ReleaseYearTextBox.Text != "" && PriceTextBox.Text != "" &&
-                    CylinderAmountTextBox.Text != "" && VolumeTextBox.Text != "" && HorsePowerTextBox.Text != "" &&
-                    TransmissionTypeTextBox.Text != "" && LengthTextBox.Text != "" && WidthTextBox.Text != "" &&
-                    HeightTextBox.Text != "" && ConditionTextBox.Text != "")
+            if(AreRequiredTextBoxesRigthFilled())
             {
                 addingCar.brand = BrandTextBox.Text;
                 addingCar.releaseYear = int.Parse(ReleaseYearTextBox.Text);
@@ -47,7 +57,8 @@ namespace CourseWork
             }
             else
             {
-                MessageBox.Show("поля марки, характеристик, стану та ціни мають бути заповненими");
+                MessageBox.Show("поля марки, характеристик, стану та ціни мають бути заповненими." +
+                                " Поля, які потребують чисел, мають бути заповнені тільки числами");
             }
 
         }

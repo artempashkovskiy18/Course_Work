@@ -51,7 +51,7 @@ namespace CourseWork
             this.label3 = new System.Windows.Forms.Label();
             this.CylinderAmountTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Release_Year_TextBox = new System.Windows.Forms.TextBox();
+            this.ReleaseYearTextBox = new System.Windows.Forms.TextBox();
             this.Add_New_Car_Button = new System.Windows.Forms.Button();
             this.Close_Form_Button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -241,10 +241,10 @@ namespace CourseWork
             // 
             // Release_Year_TextBox
             // 
-            this.Release_Year_TextBox.Location = new System.Drawing.Point(86, 118);
-            this.Release_Year_TextBox.Name = "Release_Year_TextBox";
-            this.Release_Year_TextBox.Size = new System.Drawing.Size(63, 20);
-            this.Release_Year_TextBox.TabIndex = 31;
+            this.ReleaseYearTextBox.Location = new System.Drawing.Point(86, 118);
+            this.ReleaseYearTextBox.Name = "ReleaseYearTextBox";
+            this.ReleaseYearTextBox.Size = new System.Drawing.Size(63, 20);
+            this.ReleaseYearTextBox.TabIndex = 31;
             // 
             // Add_New_Car_Button
             // 
@@ -327,7 +327,7 @@ namespace CourseWork
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CylinderAmountTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.Release_Year_TextBox);
+            this.Controls.Add(this.ReleaseYearTextBox);
             this.Controls.Add(this.Add_New_Car_Button);
             this.Controls.Add(this.Close_Form_Button);
             this.Controls.Add(this.label1);
@@ -364,7 +364,7 @@ namespace CourseWork
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox CylinderAmountTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox Release_Year_TextBox;
+        private System.Windows.Forms.TextBox ReleaseYearTextBox;
         private System.Windows.Forms.Button Add_New_Car_Button;
         private System.Windows.Forms.Button Close_Form_Button;
         private System.Windows.Forms.Label label1;

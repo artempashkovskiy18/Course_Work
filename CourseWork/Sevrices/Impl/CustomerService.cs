@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using CourseWork.Repositories.Impl;
 using CourseWork.Sevrices;
 
@@ -89,16 +90,28 @@ namespace CourseWork
 
         public void PutAllCustomersInFile(List<Customer> customers)
         {
+            if (!File.Exists(FilePath.customers_File_Path))
+            {
+                File.Create(FilePath.customers_File_Path);
+            }
             repository.PutAllCustomersInFile(customers, FilePath.customers_File_Path);
         }
 
         public List<Customer> GetALlCustomersFromFile()
         {
+            if (!File.Exists(FilePath.customers_File_Path))
+            {
+                File.Create(FilePath.customers_File_Path);
+            }
             return repository.GetALlCustomersFromFile(FilePath.customers_File_Path);
         }
 
         public void PutOneCustomerInFile(Customer customer)
         {
+            if (!File.Exists(FilePath.customers_File_Path))
+            {
+                File.Create(FilePath.customers_File_Path);
+            }
             repository.PutOneCustomerInFile(customer, FilePath.customers_File_Path);
         }
     }
