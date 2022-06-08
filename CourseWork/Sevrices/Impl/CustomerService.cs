@@ -8,82 +8,38 @@ namespace CourseWork
     public class CustomerService : ICustomerService
     {
         private CustomerRepository repository = new CustomerRepository();
+        
+        private bool IsCarSuitable(Car car, Customer customer)
+        {
+            if (car.price <= customer.finances)
+            {
+                return car.brand == customer.requiredCar.brand && customer.requiredCar.brand != "" ||
+                       car.releaseYear == customer.requiredCar.releaseYear && customer.requiredCar.releaseYear != -1 ||
+                       car.characteristics.engine.cylinderAmount == customer.requiredCar.characteristics.engine.cylinderAmount && customer.requiredCar.characteristics.engine.cylinderAmount != -1 ||
+                       car.characteristics.engine.volume == customer.requiredCar.characteristics.engine.volume && customer.requiredCar.characteristics.engine.volume != -1 ||
+                       car.characteristics.engine.horsePower == customer.requiredCar.characteristics.engine.horsePower && customer.requiredCar.characteristics.engine.horsePower != -1 ||
+                       car.characteristics.transmissionType == customer.requiredCar.characteristics.transmissionType && customer.requiredCar.characteristics.transmissionType != "" ||
+                       car.characteristics.dimensions.length == customer.requiredCar.characteristics.dimensions.length && customer.requiredCar.characteristics.dimensions.length != -1 ||
+                       car.characteristics.dimensions.width == customer.requiredCar.characteristics.dimensions.width && customer.requiredCar.characteristics.dimensions.width != -1 ||
+                       car.characteristics.dimensions.height == customer.requiredCar.characteristics.dimensions.height && customer.requiredCar.characteristics.dimensions.height != -1 ||
+                       car.condition == customer.requiredCar.condition && customer.requiredCar.condition != "";
+            }
+
+            return false;
+
+        }
+        
         public List<Car> GetSuitableCars(List<Car> cars, Customer customer)
         {
             List<Car> suitableCars = new List<Car>();
             
-            foreach (Car element in cars) //find suitable cars by price
+            foreach (Car car in cars)
             {
-                if (element.price <= customer.finances)
+                if (IsCarSuitable(car, customer))
                 {
-                    suitableCars.Add(element);
+                    suitableCars.Add(car);
                 }
             }
-            
-            
-            for(int i = 0; i < suitableCars.Count; i++) //delete cars we don't need by other characteristics
-            {
-                if (suitableCars[i].brand != customer.requiredCar.brand && 
-                    customer.requiredCar.brand != "")
-                {
-                    suitableCars.RemoveAt(i);
-                }
-                
-                if (suitableCars[i].releaseYear != customer.requiredCar.releaseYear && 
-                    customer.requiredCar.releaseYear != -1)
-                {
-                    suitableCars.RemoveAt(i);
-                }
-                
-                if (suitableCars[i].characteristics.engine.cylinderAmount != customer.requiredCar.characteristics.engine.cylinderAmount && 
-                    customer.requiredCar.characteristics.engine.cylinderAmount != -1)
-                {
-                    suitableCars.RemoveAt(i);
-                }
-                
-                if (suitableCars[i].characteristics.engine.volume != customer.requiredCar.characteristics.engine.volume && 
-                    customer.requiredCar.characteristics.engine.volume != -1)
-                {
-                    suitableCars.RemoveAt(i);
-                }
-                
-                if (suitableCars[i].characteristics.engine.horsePower != customer.requiredCar.characteristics.engine.horsePower && 
-                    customer.requiredCar.characteristics.engine.horsePower != -1)
-                {
-                    suitableCars.RemoveAt(i);
-                }
-                
-                if (suitableCars[i].characteristics.transmissionType != customer.requiredCar.characteristics.transmissionType && 
-                    customer.requiredCar.characteristics.transmissionType != "")
-                {
-                    suitableCars.RemoveAt(i);
-                }
-                
-                if (suitableCars[i].characteristics.dimensions.length != customer.requiredCar.characteristics.dimensions.length && 
-                    customer.requiredCar.characteristics.dimensions.length != -1)
-                {
-                    suitableCars.RemoveAt(i);
-                }
-                
-                if (suitableCars[i].characteristics.dimensions.width != customer.requiredCar.characteristics.dimensions.width && 
-                    customer.requiredCar.characteristics.dimensions.width != -1)
-                {
-                    suitableCars.RemoveAt(i);
-                }
-                
-                if (suitableCars[i].characteristics.dimensions.height != customer.requiredCar.characteristics.dimensions.height && 
-                    customer.requiredCar.characteristics.dimensions.height != -1)
-                {
-                    suitableCars.RemoveAt(i);
-                }
-                
-                if (suitableCars[i].condition != customer.requiredCar.condition && 
-                    customer.requiredCar.condition != "")
-                {
-                    suitableCars.RemoveAt(i);
-                }
-            }
-            
 
             return suitableCars;
         }
