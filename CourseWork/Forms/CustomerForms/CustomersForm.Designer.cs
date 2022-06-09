@@ -58,7 +58,7 @@ namespace CourseWork
             this.label13 = new System.Windows.Forms.Label();
             this.contactsListBox = new System.Windows.Forms.ListBox();
             this.Delete_Customer = new System.Windows.Forms.Button();
-            this.Get_suitable_cars_button = new System.Windows.Forms.Button();
+            this.GetSuitableCarsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label12
@@ -378,20 +378,20 @@ namespace CourseWork
             // 
             // Get_suitable_cars_button
             // 
-            this.Get_suitable_cars_button.Location = new System.Drawing.Point(186, 1);
-            this.Get_suitable_cars_button.Name = "Get_suitable_cars_button";
-            this.Get_suitable_cars_button.Size = new System.Drawing.Size(130, 35);
-            this.Get_suitable_cars_button.TabIndex = 55;
-            this.Get_suitable_cars_button.Text = "підібрати машини\r\nдля обраного покупця\r\n";
-            this.Get_suitable_cars_button.UseVisualStyleBackColor = true;
-            this.Get_suitable_cars_button.Click += new System.EventHandler(this.GetSuitableCarsButton_Click);
+            this.GetSuitableCarsButton.Location = new System.Drawing.Point(186, 1);
+            this.GetSuitableCarsButton.Name = "GetSuitableCarsButton";
+            this.GetSuitableCarsButton.Size = new System.Drawing.Size(130, 35);
+            this.GetSuitableCarsButton.TabIndex = 55;
+            this.GetSuitableCarsButton.Text = "підібрати машини\r\nдля обраного покупця\r\n";
+            this.GetSuitableCarsButton.UseVisualStyleBackColor = true;
+            this.GetSuitableCarsButton.Click += new System.EventHandler(this.GetSuitableCarsButton_Click);
             // 
             // Customers_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 560);
-            this.Controls.Add(this.Get_suitable_cars_button);
+            this.Controls.Add(this.GetSuitableCarsButton);
             this.Controls.Add(this.Delete_Customer);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.contactsListBox);
@@ -429,7 +429,7 @@ namespace CourseWork
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.Button Get_suitable_cars_button;
+        private System.Windows.Forms.Button GetSuitableCarsButton;
 
         #endregion
 

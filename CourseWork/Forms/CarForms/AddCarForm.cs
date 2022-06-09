@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using CourseWork.Sevrices;
 
 namespace CourseWork
 {
@@ -12,7 +13,7 @@ namespace CourseWork
         }
 
         private Car addingCar = new Car();
-        private CarService service = new CarService();
+        private ICarService service = new CarService();
 
         private bool AreRequiredTextBoxesRigthFilled()
         {
@@ -27,14 +28,10 @@ namespace CourseWork
                    int.TryParse(HeightTextBox.Text, out int _);
         }
 
-
-
-
         private void CloseFormButton_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void AddNewCarButton_Click(object sender, EventArgs e)
         {
             if(AreRequiredTextBoxesRigthFilled())
@@ -52,7 +49,7 @@ namespace CourseWork
                 addingCar.condition = ConditionTextBox.Text;
                 addingCar.price = int.Parse(PriceTextBox.Text);
                 
-                service.PutOneCarInFile(addingCar);
+                service.SaveCar(addingCar);
                 Close();
             }
             else
@@ -62,7 +59,6 @@ namespace CourseWork
             }
 
         }
-
 
         private void AddCarForm_FormClosed(object sender, FormClosedEventArgs e)
         {

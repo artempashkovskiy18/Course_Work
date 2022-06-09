@@ -49,7 +49,9 @@
   <ItemGroup>
     <Compile Include="Common\CarsFileIndexes.cs" />
     <Compile Include="Common\CustomersFileIndexes.cs" />
+    <Compile Include="Common\Extensions.cs" />
     <Compile Include="Common\FilePath.cs" />
+    <Compile Include="Common\GetNewValues.cs" />
     <Compile Include="Forms\CarForms\AddCarForm.cs" />
     <Compile Include="Forms\CarForms\AddCarForm.Designer.cs">
       <DependentUpon>AddCarForm.cs</DependentUpon>
@@ -83,10 +85,10 @@
     <Compile Include="Repositories\ICustomerRepository.cs" />
     <Compile Include="Repositories\Impl\CarRepository.cs" />
     <Compile Include="Repositories\Impl\CustomerRepository.cs" />
-    <Compile Include="Sevrices\ICarService.cs" />
-    <Compile Include="Sevrices\ICustomerService.cs" />
-    <Compile Include="Sevrices\Impl\CarService.cs" />
-    <Compile Include="Sevrices\Impl\CustomerService.cs" />
+    <Compile Include="Services\ICarService.cs" />
+    <Compile Include="Services\ICustomerService.cs" />
+    <Compile Include="Services\Impl\CarService.cs" />
+    <Compile Include="Services\Impl\CustomerService.cs" />
     <EmbeddedResource Include="Forms\CarForms\AddCarForm.resx">
       <DependentUpon>AddCarForm.cs</DependentUpon>
     </EmbeddedResource>

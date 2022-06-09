@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using static CourseWork.CarsFileIndexes;
@@ -8,13 +9,18 @@ namespace CourseWork.Repositories.Impl
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public void PutAllCustomersInFile(List<Customer> customers, string path)
+        public void PutAllCustomersInFile(List<Customer> customers)
         {
-            using (StreamWriter w = new StreamWriter(path))
+            if (!File.Exists(FilePath.customers_File_Path))
+            {
+                File.Create(FilePath.customers_File_Path);
+            }
+            
+            using (StreamWriter writer = new StreamWriter(FilePath.customers_File_Path))
             {
                 foreach (Customer customer in customers)
                 {
-                    string temp = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",
+                    string customerString = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14}",
                         customer.requiredCar.brand,
                         customer.requiredCar.releaseYear,
                         customer.requiredCar.price,
@@ -28,47 +34,56 @@ namespace CourseWork.Repositories.Impl
                         customer.requiredCar.peculiarities,
                         customer.requiredCar.condition,
                         customer.contacts,
-                        customer.finances);
+                        customer.finances,
+                        customer.id);
 
-                    w.WriteLine(temp);
+                    writer.WriteLine(customerString);
                 }
             }
         }
-
-        public List<Customer> GetALlCustomersFromFile(string path)
+        public List<Customer> GetAllCustomersFromFile()
         {
-            List<Customer> customers = new List<Customer>();
-            foreach (string line in File.ReadLines(path))
+            if (!File.Exists(FilePath.customers_File_Path))
             {
-                List<string> cutomerInfo = line.Split(',').ToList();
+                File.Create(FilePath.customers_File_Path);
+            }
+            
+            List<Customer> customers = new List<Customer>();
+            foreach (string line in File.ReadLines(FilePath.customers_File_Path))
+            {
+                List<string> customerInfo = line.Split(',').ToList();
 
                 Car car = new Car(
-                    cutomerInfo[brand_index],
-                    int.Parse(cutomerInfo[release_year_index]),
-                    int.Parse(cutomerInfo[price_index]),
-                    int.Parse(cutomerInfo[cylinder_amount_index]),
-                    int.Parse(cutomerInfo[volume_index]),
-                    int.Parse(cutomerInfo[horse_power_index]),
-                    cutomerInfo[transmission_type_index],
-                    int.Parse(cutomerInfo[length_index]),
-                    int.Parse(cutomerInfo[width_index]),
-                    int.Parse(cutomerInfo[height_index]),
-                    cutomerInfo[peculiarities_index],
-                    cutomerInfo[condition_index]);
+                    customerInfo[brand_index],
+                    int.Parse(customerInfo[release_year_index]),
+                    int.Parse(customerInfo[price_index]),
+                    int.Parse(customerInfo[cylinder_amount_index]),
+                    int.Parse(customerInfo[volume_index]),
+                    int.Parse(customerInfo[horse_power_index]),
+                    customerInfo[transmission_type_index],
+                    int.Parse(customerInfo[length_index]),
+                    int.Parse(customerInfo[width_index]),
+                    int.Parse(customerInfo[height_index]),
+                    customerInfo[peculiarities_index],
+                    customerInfo[condition_index]);
 
-                Customer temp = new Customer(cutomerInfo[contacts_index], car, int.Parse(cutomerInfo[finances_index]));
+                Customer customer = new Customer(Guid.Parse(customerInfo[customer_id_index]) ,customerInfo[contacts_index], car, int.Parse(customerInfo[finances_index]));
 
-                customers.Add(temp);
+                customers.Add(customer);
             }
 
             return customers;
         }
-
-        public void PutOneCustomerInFile(Customer customer, string path)
+        public void PutCustomerInFile(Customer customer)
         {
-            using (StreamWriter w = new StreamWriter(path, true))
+            if (!File.Exists(FilePath.customers_File_Path))
             {
-                string temp = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",
+                File.Create(FilePath.customers_File_Path);
+            }
+            
+            using (StreamWriter writer = new StreamWriter(FilePath.customers_File_Path, true))
+            {
+                string customerString = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14}",
                     customer.requiredCar.brand,
                     customer.requiredCar.releaseYear,
                     customer.requiredCar.price,
@@ -82,9 +97,22 @@ namespace CourseWork.Repositories.Impl
                     customer.requiredCar.peculiarities,
                     customer.requiredCar.condition,
                     customer.contacts,
-                    customer.finances);
+                    customer.finances,
+                    customer.id);
 
-                w.WriteLine(temp);
+                writer.WriteLine(customerString);
+            }
+        }
+        public void DeleteCustomer(Customer customer)
+        {
+            List<string> lines = File.ReadAllLines(FilePath.customers_File_Path).ToList();
+
+            using (StreamWriter writer = new StreamWriter(FilePath.customers_File_Path))
+            {
+                foreach (string line in lines.Where(line => !line.Contains(customer.id.ToString())))
+                {
+                    writer.WriteLine(line);
+                }
             }
         }
     }

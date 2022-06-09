@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Windows.Forms;
+using CourseWork.Sevrices;
 using static CourseWork.CarsFileIndexes;
+using static CourseWork.GetNewValues;
 
 namespace CourseWork
 {
@@ -16,7 +16,7 @@ namespace CourseWork
             ExitToMenuButton.DialogResult = DialogResult.Abort;
             AddCarButton.DialogResult = DialogResult.Abort;
         }
-        
+
         public CarsForm(bool displayAllCars, List<Car> suitable_cars)
         {
             InitializeComponent();
@@ -27,20 +27,18 @@ namespace CourseWork
         }
 
         List<Car> cars = new List<Car>();
-        List<ListBox> listboxes = new List<ListBox>();
         int selectedIndex = 0;
         private bool displayAllCars = true;
-        private CarService service = new CarService();
+        private ICarService service = new CarService();
 
-
+        //self-made methods
         private void PutToListBoxes()
         {
-            //clearing listboxes
-            foreach (ListBox listBox in listboxes)
+            foreach (ListBox listBox in GetListBoxes())
             {
                 listBox.Items.Clear();
             }
-            //filling listboxes
+
             foreach (Car car in cars)
             {
                 brandListBox.Items.Add(car.brand);
@@ -73,42 +71,21 @@ namespace CourseWork
         }
         private void ChangeListBoxesSelectedIndex(int i)
         {
-            foreach(ListBox control in listboxes)
+            foreach (ListBox control in GetListBoxes())
             {
                 control.SelectedIndex = i;
             }
+
             selectedIndex = i;
         }
-        private string ChangeIntValue(ListBox listBox)
-        {
-            string s = Interaction.InputBox("Введіть значення: ");
-            if (int.TryParse(s, out _))
-            {
-                listBox.Items[selectedIndex] = s;
-                return s;
-            }
-            MessageBox.Show("можна вводити тільки число");
-            return listBox.Items[selectedIndex].ToString();
-            
-        }
-        private string ChangeStringValue(ListBox listBox)
-        {
-            string s = Interaction.InputBox("Введіть значення: ");
-            
-            listBox.Items[selectedIndex] = s;
-            return s;
-        }
+
         
-
-
-
+        //form load and closing methods
         private void CarsForm_Load(object sender, EventArgs e)
         {
-            listboxes = GetListBoxes();
-            
             if (displayAllCars)
             {
-                cars = service.GetALlCarsFromFile();
+                cars = service.GetCars();
             }
             else
             {
@@ -117,7 +94,7 @@ namespace CourseWork
                 DeleteCarButton.Enabled = false;
                 DeleteCarButton.Hide();
             }
-            
+
             PutToListBoxes();
         }
         private void CarsForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -129,7 +106,6 @@ namespace CourseWork
                     MainForm mainForm = new MainForm();
                     mainForm.Show();
                 }
-                service.PutAllCarsInFile(cars);
             }
             else
             {
@@ -138,11 +114,8 @@ namespace CourseWork
             }
         }
 
-
-
-
-
-
+        
+        //buttons click methods
         private void ExitToMenuButton_Click(object sender, EventArgs e)
         {
             if (displayAllCars)
@@ -150,6 +123,7 @@ namespace CourseWork
                 MainForm mainForm = new MainForm();
                 mainForm.Show();
             }
+
             Close();
         }
         private void AddCarButton_Click(object sender, EventArgs e)
@@ -160,54 +134,54 @@ namespace CourseWork
         }
         private void DeleteCarButton_Click(object sender, EventArgs e)
         {
-
             DialogResult res = MessageBox.Show("ви хочете видалити елемент?",
-                                                "Повідомленння",
-                                                MessageBoxButtons.YesNo,
-                                                MessageBoxIcon.Information,
-                                                MessageBoxDefaultButton.Button1,
-                                                MessageBoxOptions.DefaultDesktopOnly);
+                "Повідомленння",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
             Show();
 
             if (res == DialogResult.Yes)
             {
+                service.DeleteCar(cars[selectedIndex]);
                 cars.RemoveAt(selectedIndex);
                 PutToListBoxes();
             }
         }
 
-
-
-
-
-
+        
+        //change car's values methods
         private void peculiaritiesListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (displayAllCars)
             {
-                cars[selectedIndex].peculiarities = ChangeStringValue(peculiaritiesListBox);
+                string newValue = GetNewStringValue();
+                cars[selectedIndex] = service.EditCar(cars[selectedIndex], peculiarities_index, newValue);
+                peculiaritiesListBox.Items[selectedIndex] = newValue;
             }
         }
         private void conditionListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (displayAllCars)
             {
-                cars[selectedIndex].condition = ChangeStringValue(conditionListBox);
+                string newValue = GetNewStringValue();
+                cars[selectedIndex] = service.EditCar(cars[selectedIndex], condition_index, newValue);
+                conditionListBox.Items[selectedIndex] = newValue;
             }
         }
         private void priceListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (displayAllCars)
             {
-                cars[selectedIndex].price = int.Parse(ChangeIntValue(priceListBox));
+                int newValue = GetNewIntValue();
+                cars[selectedIndex] = service.EditCar(cars[selectedIndex], price_index, newValue.ToString());
+                priceListBox.Items[selectedIndex] = newValue;
             }
         }
 
-
-
-
-
-
+        
+        //change listboxes selected index methods
         private void brandListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ChangeListBoxesSelectedIndex(brandListBox.SelectedIndex);
@@ -256,6 +230,5 @@ namespace CourseWork
         {
             ChangeListBoxesSelectedIndex(priceListBox.SelectedIndex);
         }
-
     }
 }

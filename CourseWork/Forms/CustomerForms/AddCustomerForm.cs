@@ -1,7 +1,6 @@
 ﻿using System;
-using System.IO;
-using System.Net;
 using System.Windows.Forms;
+using CourseWork.Sevrices;
 
 namespace CourseWork
 {
@@ -12,7 +11,7 @@ namespace CourseWork
             InitializeComponent();
         }
         Customer addingCustomer = new Customer();
-        private CustomerService service = new CustomerService();
+        private ICustomerService service = new CustomerService();
 
         private int CheckIsTextBoxEmptyAndRightFilled(TextBox textBox)
         {
@@ -58,7 +57,7 @@ namespace CourseWork
             else
             {
                 addingCustomer.contacts = ContactsTextBox.Text;
-                service.PutOneCustomerInFile(addingCustomer);
+                service.SaveCustomer(addingCustomer);
                 Close();
             }
         }

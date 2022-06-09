@@ -16,5 +16,6 @@ namespace CourseWork
         public const int height_index = 9;
         public const int peculiarities_index = 10;
         public const int condition_index = 11;
+        public const int car_id_index = 12;
     }
 }
