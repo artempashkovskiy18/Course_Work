@@ -4,12 +4,15 @@ namespace CourseWork.Repositories
 {
     public interface ICustomerRepository
     {
-        void PutAllCustomersInFile(List<Customer> customers);
+        void SaveAllCustomers(List<Customer> customers);
 
-        List<Customer> GetAllCustomersFromFile();
+        List<Customer> GetAllCustomers();
 
-        void PutCustomerInFile(Customer customer);
+        void SaveCustomer(Customer customer);
 
         void DeleteCustomer(Customer customer);
+
+        void EditCustomer(Customer customer);
+
     }
 }

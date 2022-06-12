@@ -9,22 +9,23 @@ namespace CourseWork
         {
             return Interaction.InputBox("Введіть значення: ");
         }
-        public static int GetNewIntValue()
+        public static bool GetNewIntValue(out int newValue)
         {
             string s = Interaction.InputBox("Введіть значення: ");
-
-            if (int.TryParse(s, out int newValue))
+            
+            if (int.TryParse(s, out newValue))
             {
-                return newValue;
+                return true;
             }
-
+            
             if (s == "")
             {
-                return -1;
+                newValue = -1;
+                return true;
             }
-
+            
             MessageBox.Show("можна вводити тільки число");
-            return -1;
+            return false;
         }
     }
 }

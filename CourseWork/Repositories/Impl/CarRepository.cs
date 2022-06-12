@@ -8,7 +8,7 @@ namespace CourseWork.Repositories.Impl
 {
     public class CarRepository : ICarRepository
     {
-        public void PutAllCarsInFile(List<Car> cars)
+        public void SaveAllCars(List<Car> cars)
         {
             if (!File.Exists(FilePath.cars_File_Path))
             {
@@ -38,7 +38,7 @@ namespace CourseWork.Repositories.Impl
                 }
             }
         }
-        public List<Car> GetAllCarsFromFile()
+        public List<Car> GetAllCars()
         {
             if (!File.Exists(FilePath.cars_File_Path))
             {
@@ -49,7 +49,7 @@ namespace CourseWork.Repositories.Impl
             foreach (string line in File.ReadLines(FilePath.cars_File_Path))
             {
                 List<string> carInfo = line.Split(',').ToList();
-                Car carString = new Car(Guid.Parse(carInfo[car_id_index]),
+                Car car = new Car(Guid.Parse(carInfo[car_id_index]),
                     carInfo[brand_index],
                     int.Parse(carInfo[release_year_index]),
                     int.Parse(carInfo[price_index]),
@@ -63,12 +63,12 @@ namespace CourseWork.Repositories.Impl
                     carInfo[peculiarities_index],
                     carInfo[condition_index]);
 
-                cars.Add(carString);
+                cars.Add(car);
             }
 
             return cars;
         }
-        public void PutCarInFile(Car car)
+        public void SaveCar(Car car)
         {
             if (!File.Exists(FilePath.cars_File_Path))
             {
@@ -106,6 +106,12 @@ namespace CourseWork.Repositories.Impl
                     writer.WriteLine(line);
                 }
             }
+        }
+        
+        public void EditCar(Car car)
+        {
+            DeleteCar(car);
+            SaveCar(car);
         }
     }
 }

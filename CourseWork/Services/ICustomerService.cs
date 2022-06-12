@@ -14,6 +14,6 @@ namespace CourseWork.Sevrices
 
         void DeleteCustomer(Customer customer);
         
-        Customer EditCustomer(Customer customer, int indexToEdit, string newValue);
+        void EditCustomer(Customer customer);
     }
 }

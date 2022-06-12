@@ -92,94 +92,25 @@ namespace CourseWork
         {
             foreach (Customer customer in customers)
             {
-                repository.PutCustomerInFile(customer);
+                repository.SaveCustomer(customer);
             }
             //repository.PutAllCustomersInFile(customers);
         }
         public List<Customer> GetCustomers()
         {
-            return repository.GetAllCustomersFromFile();
+            return repository.GetAllCustomers();
         }
         public void SaveCustomer(Customer customer)
         {
-            repository.PutCustomerInFile(customer);
+            repository.SaveCustomer(customer);
         }
         public void DeleteCustomer(Customer customer)
         {
             repository.DeleteCustomer(customer);
         }
-        public Customer EditCustomer(Customer customer, int indexToEdit, string newValue)
+        public void EditCustomer(Customer customer)
         {
-            switch (indexToEdit)
-            {
-                case brand_index:
-                    DeleteCustomer(customer);
-                    customer.requiredCar.brand = newValue;
-                    SaveCustomer(customer);
-                    break;
-                case release_year_index:
-                    DeleteCustomer(customer);
-                    customer.requiredCar.releaseYear = int.Parse(newValue);
-                    SaveCustomer(customer);
-                    break;
-                case cylinder_amount_index:
-                    DeleteCustomer(customer);
-                    customer.requiredCar.characteristics.engine.cylinderAmount = int.Parse(newValue);
-                    SaveCustomer(customer);
-                    break;
-                case volume_index:
-                    DeleteCustomer(customer);
-                    customer.requiredCar.characteristics.engine.volume = int.Parse(newValue);
-                    SaveCustomer(customer);
-                    break;
-                case horse_power_index:
-                    DeleteCustomer(customer);
-                    customer.requiredCar.characteristics.engine.horsePower = int.Parse(newValue);
-                    SaveCustomer(customer);
-                    break;
-                case transmission_type_index:
-                    DeleteCustomer(customer);
-                    customer.requiredCar.characteristics.transmissionType = newValue;
-                    SaveCustomer(customer);
-                    break;
-                case length_index:
-                    DeleteCustomer(customer);
-                    customer.requiredCar.characteristics.dimensions.length = int.Parse(newValue);
-                    SaveCustomer(customer);
-                    break;
-                case width_index:
-                    DeleteCustomer(customer);
-                    customer.requiredCar.characteristics.dimensions.width = int.Parse(newValue);
-                    SaveCustomer(customer);
-                    break;
-                case height_index:
-                    DeleteCustomer(customer);
-                    customer.requiredCar.characteristics.dimensions.height = int.Parse(newValue);
-                    SaveCustomer(customer);
-                    break;
-                case peculiarities_index:
-                    DeleteCustomer(customer);
-                    customer.requiredCar.peculiarities = newValue;
-                    SaveCustomer(customer);
-                    break;
-                case condition_index:
-                    DeleteCustomer(customer);
-                    customer.requiredCar.condition = newValue;
-                    SaveCustomer(customer);
-                    break;
-                case finances_index:
-                    DeleteCustomer(customer);
-                    customer.finances = int.Parse(newValue);
-                    SaveCustomer(customer);
-                    break;
-                case contacts_index:
-                    DeleteCustomer(customer);
-                    customer.contacts = newValue;
-                    SaveCustomer(customer);
-                    break;
-            }
-
-            return customer;
+            repository.EditCustomer(customer);
         }
     }
 }

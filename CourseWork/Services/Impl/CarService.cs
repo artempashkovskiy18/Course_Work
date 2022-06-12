@@ -14,44 +14,25 @@ namespace CourseWork
         {
             foreach (Car car in cars)
             {
-                repository.PutCarInFile(car);
+                repository.SaveCar(car);
             }
             //repository.PutAllCarsInFile(cars);
         }
         public List<Car> GetCars()
         {
-            return repository.GetAllCarsFromFile();
+            return repository.GetAllCars();
         }
         public void SaveCar(Car car)
         {
-            repository.PutCarInFile(car);
+            repository.SaveCar(car);
         }
         public void DeleteCar(Car car)
         {
             repository.DeleteCar(car);
         }
-        public Car EditCar(Car car, int indexToEdit, string newValue)
+        public void EditCar(Car car)
         {
-            switch (indexToEdit)
-            {
-                case peculiarities_index:
-                    DeleteCar(car);
-                    car.peculiarities = newValue;
-                    SaveCar(car);
-                    break;
-                case condition_index:
-                    DeleteCar(car);
-                    car.condition = newValue;
-                    SaveCar(car);
-                    break;
-                case price_index:
-                    DeleteCar(car);
-                    car.price = int.Parse(newValue);
-                    SaveCar(car);
-                    break;
-            }
-
-            return car;
+            repository.EditCar(car);
         }
     }
 }

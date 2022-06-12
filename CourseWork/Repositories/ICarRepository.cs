@@ -4,12 +4,14 @@ namespace CourseWork.Repositories
 {
     public interface ICarRepository
     {
-        void PutAllCarsInFile(List<Car> cars);
+        void SaveAllCars(List<Car> cars);
 
-        List<Car> GetAllCarsFromFile();
+        List<Car> GetAllCars();
 
-        void PutCarInFile(Car car);
+        void SaveCar(Car car);
 
         void DeleteCar(Car car);
+        
+        void EditCar(Car car);
     }
 }

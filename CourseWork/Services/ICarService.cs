@@ -12,6 +12,6 @@ namespace CourseWork.Sevrices
 
         void DeleteCar(Car car);
 
-        Car EditCar(Car car, int indexToEdit, string newValue);
+        void EditCar(Car car);
     }
 }

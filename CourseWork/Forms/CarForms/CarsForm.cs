@@ -80,7 +80,7 @@ namespace CourseWork
         }
 
         
-        //form load and closing methods
+        //form loading and closing methods
         private void CarsForm_Load(object sender, EventArgs e)
         {
             if (displayAllCars)
@@ -157,7 +157,8 @@ namespace CourseWork
             if (displayAllCars)
             {
                 string newValue = GetNewStringValue();
-                cars[selectedIndex] = service.EditCar(cars[selectedIndex], peculiarities_index, newValue);
+                cars[selectedIndex].peculiarities = newValue;
+                service.EditCar(cars[selectedIndex]);
                 peculiaritiesListBox.Items[selectedIndex] = newValue;
             }
         }
@@ -166,16 +167,17 @@ namespace CourseWork
             if (displayAllCars)
             {
                 string newValue = GetNewStringValue();
-                cars[selectedIndex] = service.EditCar(cars[selectedIndex], condition_index, newValue);
+                cars[selectedIndex].condition = newValue;
+                service.EditCar(cars[selectedIndex]);
                 conditionListBox.Items[selectedIndex] = newValue;
             }
         }
         private void priceListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (displayAllCars)
+            if (displayAllCars && GetNewIntValue(out int newValue))
             {
-                int newValue = GetNewIntValue();
-                cars[selectedIndex] = service.EditCar(cars[selectedIndex], price_index, newValue.ToString());
+                cars[selectedIndex].price = newValue;
+                service.EditCar(cars[selectedIndex]);
                 priceListBox.Items[selectedIndex] = newValue;
             }
         }

@@ -76,7 +76,7 @@ namespace CourseWork
         }
 
         
-        //load and closing methods
+        //form loading and closing methods
         private void CustomersForm_Load(object sender, EventArgs e)
         {
             customers = customerService.GetCustomers();
@@ -191,95 +191,86 @@ namespace CourseWork
         //change customer's values methods
         private void BrandListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            //customers[selectedIndex].requiredCar.brand =
-            //    brandListBox.ChangeStringValue(selectedIndex);
-
             string newValue = GetNewStringValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], brand_index, newValue);
+            customers[selectedIndex].requiredCar.brand = newValue;
+            customerService.EditCustomer(customers[selectedIndex]);
             brandListBox.Items[selectedIndex] = newValue;
         }
         private void ReleaseYearListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int newValue = GetNewIntValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], release_year_index, newValue.ToString());
-            releaseYearListBox.Items[selectedIndex] = newValue;
-            //if (releaseYearListBox.ChangeIntValue(selectedIndex, out int newValue))
-            //{
-            //    customers[selectedIndex].requiredCar.releaseYear = newValue;
-            //}
+            if (GetNewIntValue(out int newValue))
+            {
+                customers[selectedIndex].requiredCar.releaseYear = newValue;
+                customerService.EditCustomer(customers[selectedIndex]);
+                releaseYearListBox.Items[selectedIndex] = newValue;
+            }
         }
         private void CylinderAmountListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int newValue = GetNewIntValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], cylinder_amount_index, newValue.ToString());
-            cylinderAmountListBox.Items[selectedIndex] = newValue;
-            //if (cylinderAmountListBox.ChangeIntValue(selectedIndex, out int newValue))
-            //{
-            //    customers[selectedIndex].requiredCar.characteristics.engine.cylinderAmount = newValue;
-            //}
+            if (GetNewIntValue(out int newValue))
+            {
+                customers[selectedIndex].requiredCar.characteristics.engine.cylinderAmount = newValue;
+                customerService.EditCustomer(customers[selectedIndex]);
+                cylinderAmountListBox.Items[selectedIndex] = newValue;
+            }
         }
         private void VolumeListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int newValue = GetNewIntValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], volume_index, newValue.ToString());
-            volumeListBox.Items[selectedIndex] = newValue;
-            //if (volumeListBox.ChangeIntValue(selectedIndex, out int newValue))
-            //{
-            //    customers[selectedIndex].requiredCar.characteristics.engine.volume = newValue;
-            //}
+            if (GetNewIntValue(out int newValue))
+            {
+                customers[selectedIndex].requiredCar.characteristics.engine.volume = newValue;
+                customerService.EditCustomer(customers[selectedIndex]);
+                volumeListBox.Items[selectedIndex] = newValue;
+            }
         }
         private void HorsePowerListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int newValue = GetNewIntValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], horse_power_index, newValue.ToString());
-            horsePowerListBox.Items[selectedIndex] = newValue;
-            //if (horsePowerListBox.ChangeIntValue(selectedIndex, out int newValue))
-            //{
-            //    customers[selectedIndex].requiredCar.characteristics.engine.horsePower = newValue;
-            //}
+            if (GetNewIntValue(out int newValue))
+            {
+                customers[selectedIndex].requiredCar.characteristics.engine.horsePower = newValue;
+                customerService.EditCustomer(customers[selectedIndex]);
+                horsePowerListBox.Items[selectedIndex] = newValue;
+            }
         }
         private void TransmissionTypeListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string newValue = GetNewStringValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], transmission_type_index, newValue);
+            customers[selectedIndex].requiredCar.characteristics.transmissionType = newValue;
+            customerService.EditCustomer(customers[selectedIndex]);;
             transmissionTypeListBox.Items[selectedIndex] = newValue;
-            //customers[selectedIndex].requiredCar.characteristics.transmissionType =
-            //    transmissionTypeListBox.ChangeStringValue(selectedIndex);
         }
         private void LengthListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int newValue = GetNewIntValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], length_index, newValue.ToString());
-            lengthListBox.Items[selectedIndex] = newValue;
-            //if (lengthListBox.ChangeIntValue(selectedIndex, out int newValue))
-            //{
-            //    customers[selectedIndex].requiredCar.characteristics.dimensions.length = newValue;
-            //}
+            if (GetNewIntValue(out int newValue))
+            {
+                customers[selectedIndex].requiredCar.characteristics.dimensions.length = newValue;
+                customerService.EditCustomer(customers[selectedIndex]);
+                lengthListBox.Items[selectedIndex] = newValue;
+            }
         }
         private void WidthListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int newValue = GetNewIntValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], width_index, newValue.ToString());
-            widthListBox.Items[selectedIndex] = newValue;
-            //if (widthListBox.ChangeIntValue(selectedIndex, out int newValue))
-            //{
-            //    customers[selectedIndex].requiredCar.characteristics.dimensions.width = newValue;
-            //}
+            if (GetNewIntValue(out int newValue))
+            {
+                customers[selectedIndex].requiredCar.characteristics.dimensions.width = newValue;
+                customerService.EditCustomer(customers[selectedIndex]);
+                widthListBox.Items[selectedIndex] = newValue;
+            }
         }
         private void HeightListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int newValue = GetNewIntValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], height_index, newValue.ToString());
-            heightListBox.Items[selectedIndex] = newValue;
-            //if (heightListBox.ChangeIntValue(selectedIndex, out int newValue))
-            //{
-            //    customers[selectedIndex].requiredCar.characteristics.dimensions.height = newValue;
-            //}
+            if (GetNewIntValue(out int newValue))
+            {
+                customers[selectedIndex].requiredCar.characteristics.dimensions.height = newValue;
+                customerService.EditCustomer(customers[selectedIndex]);
+                heightListBox.Items[selectedIndex] = newValue;
+            }
         }
         private void PeculiaritiesListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string newValue = GetNewStringValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], peculiarities_index, newValue);
+            customers[selectedIndex].requiredCar.peculiarities = newValue;
+            customerService.EditCustomer(customers[selectedIndex]);
             peculiaritiesListBox.Items[selectedIndex] = newValue;
             //customers[selectedIndex].requiredCar.peculiarities =
             //    peculiaritiesListBox.ChangeStringValue(selectedIndex);
@@ -287,29 +278,25 @@ namespace CourseWork
         private void ConditionListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string newValue = GetNewStringValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], condition_index, newValue);
+            customers[selectedIndex].requiredCar.condition = newValue;
+            customerService.EditCustomer(customers[selectedIndex]);
             conditionListBox.Items[selectedIndex] = newValue;
-            
-            //customers[selectedIndex].requiredCar.condition =
-            //    conditionListBox.ChangeStringValue(selectedIndex);
         }
         private void FinancesListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int newValue = GetNewIntValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], finances_index, newValue.ToString());
-            financesListBox.Items[selectedIndex] = newValue;
-            //if (financesListBox.ChangeIntValue(selectedIndex, out int newValue))
-            //{
-            //    customers[selectedIndex].finances = newValue;
-            //}
+            if (GetNewIntValue(out int newValue))
+            {
+                customers[selectedIndex].finances = newValue;
+                customerService.EditCustomer(customers[selectedIndex]);
+                financesListBox.Items[selectedIndex] = newValue;
+            }
         }
         private void ContactsListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string newValue = GetNewStringValue();
-            customers[selectedIndex] = customerService.EditCustomer(customers[selectedIndex], contacts_index, newValue);
+            customers[selectedIndex].contacts = newValue;
+            customerService.EditCustomer(customers[selectedIndex]); 
             contactsListBox.Items[selectedIndex] = newValue;
-            //customers[selectedIndex].contacts =
-            //    financesListBox.ChangeStringValue(selectedIndex);
         }
     }
 }

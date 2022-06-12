@@ -9,7 +9,7 @@ namespace CourseWork.Repositories.Impl
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public void PutAllCustomersInFile(List<Customer> customers)
+        public void SaveAllCustomers(List<Customer> customers)
         {
             if (!File.Exists(FilePath.customers_File_Path))
             {
@@ -41,7 +41,7 @@ namespace CourseWork.Repositories.Impl
                 }
             }
         }
-        public List<Customer> GetAllCustomersFromFile()
+        public List<Customer> GetAllCustomers()
         {
             if (!File.Exists(FilePath.customers_File_Path))
             {
@@ -74,7 +74,7 @@ namespace CourseWork.Repositories.Impl
 
             return customers;
         }
-        public void PutCustomerInFile(Customer customer)
+        public void SaveCustomer(Customer customer)
         {
             if (!File.Exists(FilePath.customers_File_Path))
             {
@@ -114,6 +114,12 @@ namespace CourseWork.Repositories.Impl
                     writer.WriteLine(line);
                 }
             }
+        }
+
+        public void EditCustomer(Customer customer)
+        {
+            DeleteCustomer(customer);
+            SaveCustomer(customer);
         }
     }
 }
