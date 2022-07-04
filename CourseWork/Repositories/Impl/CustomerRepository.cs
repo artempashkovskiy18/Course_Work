@@ -9,7 +9,7 @@ namespace CourseWork.Repositories.Impl
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public void SaveAllCustomers(List<Customer> customers)
+        public void SaveCustomers(List<Customer> customers)
         {
             if (!File.Exists(FilePath.customers_File_Path))
             {

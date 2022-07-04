@@ -36,19 +36,19 @@ namespace CourseWork
 
             foreach (Customer customer in customers)
             {
-                brandListBox.Items.Add(customer.requiredCar.brand);
-                releaseYearListBox.Items.Add(customer.requiredCar.releaseYear);
-                cylinderAmountListBox.Items.Add(customer.requiredCar.characteristics.engine.cylinderAmount);
-                volumeListBox.Items.Add(customer.requiredCar.characteristics.engine.volume);
-                horsePowerListBox.Items.Add(customer.requiredCar.characteristics.engine.horsePower);
-                transmissionTypeListBox.Items.Add(customer.requiredCar.characteristics.transmissionType);
-                lengthListBox.Items.Add(customer.requiredCar.characteristics.dimensions.length);
-                widthListBox.Items.Add(customer.requiredCar.characteristics.dimensions.width);
-                heightListBox.Items.Add(customer.requiredCar.characteristics.dimensions.height);
-                peculiaritiesListBox.Items.Add(customer.requiredCar.peculiarities);
-                conditionListBox.Items.Add(customer.requiredCar.condition);
-                financesListBox.Items.Add(customer.finances);
-                contactsListBox.Items.Add(customer.contacts);
+                brandListBox.AddElement(customer.requiredCar.brand);
+                releaseYearListBox.AddElement(customer.requiredCar.releaseYear);
+                cylinderAmountListBox.AddElement(customer.requiredCar.characteristics.engine.cylinderAmount);
+                volumeListBox.AddElement(customer.requiredCar.characteristics.engine.volume);
+                horsePowerListBox.AddElement(customer.requiredCar.characteristics.engine.horsePower);
+                transmissionTypeListBox.AddElement(customer.requiredCar.characteristics.transmissionType);
+                lengthListBox.AddElement(customer.requiredCar.characteristics.dimensions.length);
+                widthListBox.AddElement(customer.requiredCar.characteristics.dimensions.width);
+                heightListBox.AddElement(customer.requiredCar.characteristics.dimensions.height);
+                peculiaritiesListBox.AddElement(customer.requiredCar.peculiarities);
+                conditionListBox.AddElement(customer.requiredCar.condition);
+                financesListBox.AddElement(customer.finances);
+                contactsListBox.AddElement(customer.contacts);
             }
         }
         private List<ListBox> GetListBoxes()
@@ -194,7 +194,7 @@ namespace CourseWork
             string newValue = GetNewStringValue();
             customers[selectedIndex].requiredCar.brand = newValue;
             customerService.EditCustomer(customers[selectedIndex]);
-            brandListBox.Items[selectedIndex] = newValue;
+            brandListBox.Change(selectedIndex, newValue);
         }
         private void ReleaseYearListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -202,7 +202,7 @@ namespace CourseWork
             {
                 customers[selectedIndex].requiredCar.releaseYear = newValue;
                 customerService.EditCustomer(customers[selectedIndex]);
-                releaseYearListBox.Items[selectedIndex] = newValue;
+                releaseYearListBox.Change(selectedIndex, newValue);
             }
         }
         private void CylinderAmountListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -211,7 +211,7 @@ namespace CourseWork
             {
                 customers[selectedIndex].requiredCar.characteristics.engine.cylinderAmount = newValue;
                 customerService.EditCustomer(customers[selectedIndex]);
-                cylinderAmountListBox.Items[selectedIndex] = newValue;
+                cylinderAmountListBox.Change(selectedIndex, newValue);
             }
         }
         private void VolumeListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -220,7 +220,7 @@ namespace CourseWork
             {
                 customers[selectedIndex].requiredCar.characteristics.engine.volume = newValue;
                 customerService.EditCustomer(customers[selectedIndex]);
-                volumeListBox.Items[selectedIndex] = newValue;
+                volumeListBox.Change(selectedIndex, newValue);
             }
         }
         private void HorsePowerListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -229,7 +229,7 @@ namespace CourseWork
             {
                 customers[selectedIndex].requiredCar.characteristics.engine.horsePower = newValue;
                 customerService.EditCustomer(customers[selectedIndex]);
-                horsePowerListBox.Items[selectedIndex] = newValue;
+                horsePowerListBox.Change(selectedIndex, newValue);
             }
         }
         private void TransmissionTypeListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -237,7 +237,7 @@ namespace CourseWork
             string newValue = GetNewStringValue();
             customers[selectedIndex].requiredCar.characteristics.transmissionType = newValue;
             customerService.EditCustomer(customers[selectedIndex]);;
-            transmissionTypeListBox.Items[selectedIndex] = newValue;
+            transmissionTypeListBox.Change(selectedIndex, newValue);
         }
         private void LengthListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -245,7 +245,7 @@ namespace CourseWork
             {
                 customers[selectedIndex].requiredCar.characteristics.dimensions.length = newValue;
                 customerService.EditCustomer(customers[selectedIndex]);
-                lengthListBox.Items[selectedIndex] = newValue;
+                lengthListBox.Change(selectedIndex, newValue);
             }
         }
         private void WidthListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -254,7 +254,7 @@ namespace CourseWork
             {
                 customers[selectedIndex].requiredCar.characteristics.dimensions.width = newValue;
                 customerService.EditCustomer(customers[selectedIndex]);
-                widthListBox.Items[selectedIndex] = newValue;
+                widthListBox.Change(selectedIndex, newValue);
             }
         }
         private void HeightListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -263,7 +263,7 @@ namespace CourseWork
             {
                 customers[selectedIndex].requiredCar.characteristics.dimensions.height = newValue;
                 customerService.EditCustomer(customers[selectedIndex]);
-                heightListBox.Items[selectedIndex] = newValue;
+                heightListBox.Change(selectedIndex, newValue);
             }
         }
         private void PeculiaritiesListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -271,16 +271,14 @@ namespace CourseWork
             string newValue = GetNewStringValue();
             customers[selectedIndex].requiredCar.peculiarities = newValue;
             customerService.EditCustomer(customers[selectedIndex]);
-            peculiaritiesListBox.Items[selectedIndex] = newValue;
-            //customers[selectedIndex].requiredCar.peculiarities =
-            //    peculiaritiesListBox.ChangeStringValue(selectedIndex);
+            peculiaritiesListBox.Change(selectedIndex, newValue);
         }
         private void ConditionListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string newValue = GetNewStringValue();
             customers[selectedIndex].requiredCar.condition = newValue;
             customerService.EditCustomer(customers[selectedIndex]);
-            conditionListBox.Items[selectedIndex] = newValue;
+            conditionListBox.Change(selectedIndex, newValue);
         }
         private void FinancesListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -288,7 +286,7 @@ namespace CourseWork
             {
                 customers[selectedIndex].finances = newValue;
                 customerService.EditCustomer(customers[selectedIndex]);
-                financesListBox.Items[selectedIndex] = newValue;
+                financesListBox.Change(selectedIndex, newValue);
             }
         }
         private void ContactsListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -296,7 +294,7 @@ namespace CourseWork
             string newValue = GetNewStringValue();
             customers[selectedIndex].contacts = newValue;
             customerService.EditCustomer(customers[selectedIndex]); 
-            contactsListBox.Items[selectedIndex] = newValue;
+            contactsListBox.Change(selectedIndex, newValue);
         }
     }
 }

@@ -21,6 +21,7 @@ namespace CourseWork
         
         public Customer(Guid id, string contacts, Car reqiredCar, int finances)
         {
+            this.id = id;
             this.contacts = contacts;
             requiredCar = reqiredCar;
             this.finances = finances;

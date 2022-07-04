@@ -4,7 +4,7 @@ namespace CourseWork.Repositories
 {
     public interface ICarRepository
     {
-        void SaveAllCars(List<Car> cars);
+        void SaveCars(List<Car> cars);
 
         List<Car> GetAllCars();
 

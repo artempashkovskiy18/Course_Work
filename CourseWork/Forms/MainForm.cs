@@ -24,7 +24,7 @@ namespace CourseWork
             Hide();
         }
 
-        private void Main_form_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }

@@ -4,7 +4,7 @@ namespace CourseWork.Repositories
 {
     public interface ICustomerRepository
     {
-        void SaveAllCustomers(List<Customer> customers);
+        void SaveCustomers(List<Customer> customers);
 
         List<Customer> GetAllCustomers();
 

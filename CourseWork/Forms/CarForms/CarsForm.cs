@@ -41,18 +41,18 @@ namespace CourseWork
 
             foreach (Car car in cars)
             {
-                brandListBox.Items.Add(car.brand);
-                releaseYearListBox.Items.Add(car.releaseYear);
-                cylinderAmountListBox.Items.Add(car.characteristics.engine.cylinderAmount);
-                volumeListBox.Items.Add(car.characteristics.engine.volume);
-                horsePowerListBox.Items.Add(car.characteristics.engine.horsePower);
-                transmissionTypeListBox.Items.Add(car.characteristics.transmissionType);
-                lengthListBox.Items.Add(car.characteristics.dimensions.length);
-                widthListBox.Items.Add(car.characteristics.dimensions.width);
-                heightListBox.Items.Add(car.characteristics.dimensions.height);
-                peculiaritiesListBox.Items.Add(car.peculiarities);
-                conditionListBox.Items.Add(car.condition);
-                priceListBox.Items.Add(car.price);
+                brandListBox.AddElement(car.brand);
+                releaseYearListBox.AddElement(car.releaseYear);
+                cylinderAmountListBox.AddElement(car.characteristics.engine.cylinderAmount);
+                volumeListBox.AddElement(car.characteristics.engine.volume);
+                horsePowerListBox.AddElement(car.characteristics.engine.horsePower);
+                transmissionTypeListBox.AddElement(car.characteristics.transmissionType);
+                lengthListBox.AddElement(car.characteristics.dimensions.length);
+                widthListBox.AddElement(car.characteristics.dimensions.width);
+                heightListBox.AddElement(car.characteristics.dimensions.height);
+                peculiaritiesListBox.AddElement(car.peculiarities);
+                conditionListBox.AddElement(car.condition);
+                priceListBox.AddElement(car.price);
             }
         }
         private List<ListBox> GetListBoxes()
@@ -159,7 +159,7 @@ namespace CourseWork
                 string newValue = GetNewStringValue();
                 cars[selectedIndex].peculiarities = newValue;
                 service.EditCar(cars[selectedIndex]);
-                peculiaritiesListBox.Items[selectedIndex] = newValue;
+                peculiaritiesListBox.Change(selectedIndex, newValue);
             }
         }
         private void conditionListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -169,7 +169,7 @@ namespace CourseWork
                 string newValue = GetNewStringValue();
                 cars[selectedIndex].condition = newValue;
                 service.EditCar(cars[selectedIndex]);
-                conditionListBox.Items[selectedIndex] = newValue;
+                conditionListBox.Change(selectedIndex, newValue);
             }
         }
         private void priceListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -178,7 +178,7 @@ namespace CourseWork
             {
                 cars[selectedIndex].price = newValue;
                 service.EditCar(cars[selectedIndex]);
-                priceListBox.Items[selectedIndex] = newValue;
+                priceListBox.Change(selectedIndex, newValue);
             }
         }
 

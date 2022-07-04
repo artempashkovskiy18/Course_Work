@@ -8,7 +8,7 @@ namespace CourseWork.Repositories.Impl
 {
     public class CarRepository : ICarRepository
     {
-        public void SaveAllCars(List<Car> cars)
+        public void SaveCars(List<Car> cars)
         {
             if (!File.Exists(FilePath.cars_File_Path))
             {
