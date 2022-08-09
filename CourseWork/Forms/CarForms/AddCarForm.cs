@@ -41,7 +41,7 @@ namespace CourseWork
                 addingCar.characteristics.engine.cylinderAmount = int.Parse(CylinderAmountTextBox.Text);
                 addingCar.characteristics.engine.volume = int.Parse(VolumeTextBox.Text);
                 addingCar.characteristics.engine.horsePower = int.Parse(HorsePowerTextBox.Text);
-                addingCar.characteristics.transmissionType = TransmissionTypeTextBox.Text;
+                addingCar.characteristics.transmissionType = CylinderAmountTextBox.Text;
                 addingCar.characteristics.dimensions.length = int.Parse(LengthTextBox.Text);
                 addingCar.characteristics.dimensions.width = int.Parse(WidthTextBox.Text);
                 addingCar.characteristics.dimensions.height = int.Parse(HeightTextBox.Text);
@@ -54,7 +54,7 @@ namespace CourseWork
             }
             else
             {
-                MessageBox.Show("поля марки, характеристик, стану та ціни мають бути заповненими..." +
+                MessageBox.Show("поля марки, характеристик, стану та ціни мають бути заповненими." +
                                 " Поля, які потребують чисел, мають бути заповнені тільки числами");
             }
 
